@@ -214,6 +214,32 @@ body {
   transition: transform 0.7s;
 }
 
+form {
+  padding: 0 1.5em;
+}
+
+.form-item {
+  margin-bottom: 0.75em;
+  width: 100%;
+}
+
+.form-item input {
+  background: #ffffff;
+  border: none;
+  border-bottom: 2px solid #24d48b;
+  color: #666;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1em;
+  height: 50px;
+  transition: border-color 0.3s;
+  width: 100%;
+}
+
+.form-item input:focus {
+  border-bottom: 2px solid #7effb4;
+  outline: none;
+}
+
 @media screen and (max-width: 768px) {
   .base_4 {
     position: absolute;
