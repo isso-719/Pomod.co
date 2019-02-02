@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ポモドーロ履歴</title>
+  <link rel="stylesheet" href="/assets/css/history.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+
+
+</head>
+<body>
+<header id="luxbar" class="luxbar-fixed">
+    <input type="checkbox" class="luxbar-checkbox" id="luxbar-checkbox"/>
+    <div class="luxbar-menu luxbar-menu-right luxbar-menu-material-red">
+        <ul class="luxbar-navigation">
+            <li class="luxbar-header">
+              <a href="/" class="luxbar-brand">(仮)</a>
+                <%# <a href="/" class="luxbar-brand"><img src="/assets/images/icon.png" alt="Brand Icon." class="brand_icon" /></a> %>
+                <label class="luxbar-hamburger luxbar-hamburger-doublespin"
+                id="luxbar-hamburger" for="luxbar-checkbox"> <span></span> </label>
+            </li>
+
+              <li class="luxbar-item"><a href="/account">アカウント設定</a></li>
+              <li class="luxbar-item"><a href="/logout">ログアウト</a></li>
+
+            <%# <li class="luxbar-item"><a href="#">Item 2</a></li>
+            <li class="luxbar-item"><a href="#">Item 3</a></li>
+            <li class="luxbar-item"><a href="#">Item 4</a></li> %>
+        </ul>
+    </div>
+</header>
+
+<div class="main">
+  <div class="usercard">
+
+    <% if current_user.user_icon %>
+      <img src="<%= current_user.user_icon %>" alt="User Icon." class="user_icon" />
+    <% else %>
+      <img src="https://gravatar.com/avatar/<%= current_user.user_gravatar %>?s=460&d=retro" alt="User Icon." class="user_icon" />
+    <% end %>
+
+    <div class="username">
+      <h1><%= current_user.name %></h1>
+    </div>
+    <div class="timerbutton">
+      <a href="/timer" class="timer_btn">Let's ポモドーロ！</a>
+    </div>
+    <div class="indexbutton">
+      <a href="/" class="index_btn">戻る</a>
+    </div>
+
+  </div>
+
+  <div class="user_goal">
+  </div>
+
+  <div class="user_history">
+    <h1 class="history_title">ポモドーロ履歴</h1>
+
+    <tbody class="text-center">
+      <table class="history_table">
+        <tr>
+          <th>勉強したもの</th>
+          <th>一言メモ</th>
+          <th>開始日時</th>
+          <th>終了日時</th>
+        </tr>
+        <% @tomatoes.each do |tomato| %>
+          <tr>
+          <td><%= tomato.topic %></td>
+          <td><%= tomato.memo %></td>
+          <td><%= tomato.tomato_start_datetime %></td>
+          <td><%= tomato.tomato_end_datetime %></td>
+          </tr>
+        <% end %>
+      </table>
+      <%= paginate @tomatoes %>
+    </tbody>
+
+  </div>
+
+
+
+</div>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>アカウント設定</title>
+  <link rel="stylesheet" href="/assets/css/account.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+
+
+</head>
+<body>
+<header id="luxbar" class="luxbar-fixed">
+    <input type="checkbox" class="luxbar-checkbox" id="luxbar-checkbox"/>
+    <div class="luxbar-menu luxbar-menu-right luxbar-menu-material-red">
+        <ul class="luxbar-navigation">
+            <li class="luxbar-header">
+              <a href="/" class="luxbar-brand">(仮)</a>
+                <%# <a href="/" class="luxbar-brand"><img src="/assets/images/icon.png" alt="Brand Icon." class="brand_icon" /></a> %>
+                <label class="luxbar-hamburger luxbar-hamburger-doublespin"
+                id="luxbar-hamburger" for="luxbar-checkbox"> <span></span> </label>
+            </li>
+
+              <li class="luxbar-item"><a href="/account">アカウント設定</a></li>
+              <li class="luxbar-item"><a href="/logout">ログアウト</a></li>
+
+            <%# <li class="luxbar-item"><a href="#">Item 2</a></li>
+            <li class="luxbar-item"><a href="#">Item 3</a></li>
+            <li class="luxbar-item"><a href="#">Item 4</a></li> %>
+        </ul>
+    </div>
+</header>
+
+<div class="main">
+
+  <h1 class="setting_title">アカウント設定</h1>
+
+    <div class="usercard">
+
+    <h3 class="user_icon_title">ユーザーアイコン</h3>
+    <% if current_user.user_icon %>
+      <img src="<%= current_user.user_icon %>" alt="User Icon." class="user_icon" />
+    <% else %>
+      <img src="https://gravatar.com/avatar/<%= current_user.user_gravatar %>?s=460&d=retro" alt="User Icon." class="user_icon" />
+    <% end %>
+
+
+    <div class="icon_change_button">
+      <a href="/icon/upload" class="icon_change_btn">アイコンをアップロード</a>
+    </div>
+    <div class="icon_option_button">
+
+    <% if current_user.user_icon %>
+      <form action="/icon/delete" method="post">
+        <input class="icon_option_btn" type="submit" value="アイコンを削除">
+      </form>
+    <% else %>
+      <form action="/icon/shuffle" method="post">
+        <input class="icon_option_btn" type="submit" value="アイコンガチャを引く">
+      </form>
+    <% end %>
+
+    </div>
+
+  </div>
+
+  <div class="user_setting">
+
+    <form action="/account/update/general" method="post">
+  	  <div class="form-item">
+  	    <label for="name"><h3>ニックネーム</h3></label>
+  	    <input type="text" name="name" value="<%= current_user.name %>" placeholder="ニックネーム(英数字8文字以内)"></input>
+  	  </div>
+  	  <div class="form-item">
+  	    <label for="mail"><h3>メールアドレス</h3></label>
+  	    <input type="text" name="mail" value="<%= current_user.mail %>" placeholder="メールアドレス"></input>
+  	  </div>
+  	  <div class="button-panel">
+  	    <input type="submit" class="button" title="Update" value="アカウント情報をアップデート"></input>
+  	  </div>
+    </form>
+
+    <form action="/account/update/password" method="post">
+  	  <div class="form-item">
+  	    <label for="password"><h3>パスワード</h3></label>
+  	    <input type="password" name="password" placeholder="パスワード"></input>
+  	  </div>
+  	  <div class="form-item">
+  	    <label for="password"></label>
+  	    <input type="password" name="password_confirmation" placeholder="パスワードの確認"></input>
+  	  </div>
+  	  <div class="button-panel">
+  	    <input type="submit" class="button" title="Update" value="パスワードをアップデート"></input>
+  	  </div>
+    </form>
+
+    <h3>タイマー表示設定</h3>
+    <% if User.find_by(id: session[:user]).user_timer_mode == "tomato" %>
+      <form action="/account/timer/timer" method="post">
+        <div class="button-panel">
+          <input type="submit" class="button" title="timer_mode" value="オンにする"></input>
+        </div>
+      </form>
+    <% elsif User.find_by(id: session[:user]).user_timer_mode == "timer" %>
+      <form action="/account/timer/tomato" method="post">
+        <div class="button-panel">
+          <input type="submit" class="button" title="timer_mode" value="オフにする"></input>
+        </div>
+      </form>
+    <% else %>
+      error
+    <% end %>
+
+    <h3>ポモドーロ履歴をリセット</h3>
+      <form action="/account/reset" method="post">
+  	    <div class="button-panel">
+  	      <input type="submit" class="reset_delete" title="Reset" value="ポモドーロ履歴をリセットする"></input>
+  	    </div>
+      </form>
+
+    <h3>アカウント削除</h3>
+      <form action="/account/delete" method="post">
+  	    <div class="button-panel">
+  	      <input type="submit" class="reset_delete" title="Delete" value="アカウントを削除する"></input>
+  	    </div>
+      </form>
+
+  </div>
+
+
+</div>

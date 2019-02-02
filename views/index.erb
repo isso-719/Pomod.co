@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>タイトル</title>
+  <link rel="stylesheet" href="/assets/css/index.css">
+  <link rel="stylesheet" href="/assets/css/menu.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <link rel="stylesheet" href="/assets/css/jquery.fullpage.min.css">
+
+
+
+
+
+</head>
+<body>
+<header id="luxbar" class="luxbar-fixed">
+    <input type="checkbox" class="luxbar-checkbox" id="luxbar-checkbox"/>
+    <div class="luxbar-menu luxbar-menu-right luxbar-menu-material-red">
+        <ul class="luxbar-navigation">
+            <li class="luxbar-header">
+              <a href="/" class="luxbar-brand">(仮)</a>
+                <%# <a href="/" class="luxbar-brand"><img src="/assets/images/icon.png" alt="Brand Icon." class="brand_icon" /></a> %>
+                <label class="luxbar-hamburger luxbar-hamburger-doublespin"
+                id="luxbar-hamburger" for="luxbar-checkbox"> <span></span> </label>
+            </li>
+
+            <% if current_user %>
+              <li class="luxbar-item"><a href="/account">アカウント設定</a></li>
+              <li class="luxbar-item"><a href="/logout">ログアウト</a></li>
+            <% else %>
+              <li class="luxbar-item"><a href="/login">ログイン</a></li>
+              <li class="luxbar-item"><a href="/signup">アカウント登録</a></li>
+            <% end %>
+
+            <%# <li class="luxbar-item"><a href="#">Item 2</a></li>
+            <li class="luxbar-item"><a href="#">Item 3</a></li>
+            <li class="luxbar-item"><a href="#">Item 4</a></li> %>
+        </ul>
+    </div>
+</header>
+
+<% unless session[:user] %>
+
+
+<div class="about">
+
+  <div id="fullpage">
+      <div class="section">
+        <a class="scroll"><span></span>Scroll</a>
+        <h1 class="about_title">タイトルいえい</h1>
+      </div>
+      <div class="section"></div>
+      <div class="section"></div>
+      <div class="section"></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.js"></script>
+  <script>
+	  $(document).ready(function() {
+	  	$('#fullpage').fullpage({
+	  		sectionsColor: ['#AACF52', '#4BBFC3', '#7BAABE', '#E5E5E5'] //ここの''内の色を変えられます。
+	  	});
+	  });
+  </script>
+  <script >
+  $(document).ready(function() {
+    $(".scroll").click(function () {
+    $.fn.fullpage.moveTo(2);
+    });
+  });
+  </script>
+
+
+
+
+
+</div>
+
+
+
+
+
+<% else %>
+
+<div class="main">
+  <div class="usercard">
+
+
+    <% if current_user.user_icon %>
+      <img src="<%= current_user.user_icon %>" alt="User Icon." class="user_icon" />
+    <% else %>
+      <img src="https://gravatar.com/avatar/<%= current_user.user_gravatar %>?s=460&d=retro" alt="User Icon." class="user_icon" />
+    <% end %>
+
+
+    <div class="username">
+      <h1><%= current_user.name %></h1>
+    </div>
+    <div class="timerbutton">
+      <a href="/timer" class="timer_btn">Let's ポモドーロ！</a>
+    </div>
+    <div class="historybutton">
+      <a href="/history" class="history_btn">履歴を見る</a>
+    </div>
+
+  </div>
+
+  <div class="user_tree">
+    <h2>あなたはこれまで<%= current_user.tomatoes.count %>日間トマトを育てました。</h2>
+    </form>
+  </div>
+
+
+
+
+
+
+
+
+
+
+<% end %>
+
+</body>
+</html>

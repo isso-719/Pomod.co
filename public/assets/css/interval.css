@@ -1,0 +1,361 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300");
+
+* {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  padding: 0;
+  margin: 0;
+  -ms-user-select: none; /* IE 10+ */
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+body {
+  /* color: #5e5e5e; */
+  font: 400 87.5%/1.5em "Noto Sans", sans-serif;
+  /* position: relative; */
+  /* margin: 0; */
+}
+
+.base_4 {
+  position: absolute;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  z-index: 5;
+  animation: fadeIn 2s ease 0s 1 normal;
+  -webkit-animation: fadeIn 2s ease 0s 1 normal;
+}
+
+.base_3 {
+  position: absolute;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  z-index: 4;
+  animation: fadeIn 2s ease 0s 1 normal;
+  -webkit-animation: fadeIn 2s ease 0s 1 normal;
+}
+
+.base_2 {
+  position: absolute;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  z-index: 3;
+  animation: fadeIn 2s ease 0s 1 normal;
+  -webkit-animation: fadeIn 2s ease 0s 1 normal;
+}
+
+.base_1 {
+  position: absolute;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  z-index: 2;
+  animation: fadeIn 2s ease 0s 1 normal;
+  -webkit-animation: fadeIn 2s ease 0s 1 normal;
+}
+
+.base {
+  position: absolute;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  z-index: 1;
+}
+
+.back {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vh;
+  height: 60vh;
+  margin: 0 auto;
+  /* z-index: 2; */
+  text-align: center;
+}
+
+.container {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  z-index: 6;
+  text-align: center;
+}
+
+.display-remain-time {
+  font-family: "Roboto";
+  font-weight: 100;
+  font-size: 10vw;
+  color: #f7958e;
+}
+
+.display-time {
+  font-family: "Roboto";
+  font-weight: 100;
+  font-size: 3vw;
+  color: #f7958e;
+  text-align: center;
+}
+
+.controlls {
+  position: relative;
+  z-index: 6;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  -webkit-transform: translateY(-50%) translateX(-50%);
+}
+
+.display-text-controlls {
+  position: relative;
+  z-index: 6;
+  position: absolute;
+  top: 17.5%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  padding: 0;
+  margin: 0;
+}
+
+.stop {
+  outline: none;
+  background: transparent;
+  border: none;
+  margin: 10px 30px 0 30px;
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+.stop::before {
+  content: "";
+  position: absolute;
+  top: 11px;
+  left: 12px;
+  width: 27px;
+  height: 27px;
+  background-color: #f7958e;
+  border-radius: 1px;
+}
+
+#pause {
+  outline: none;
+  background: transparent;
+  border: none;
+  margin: 10px 0 0 30px;
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+.play::before {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 22px solid #f7958e;
+}
+
+.pause::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 12px;
+  width: 15px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 1px;
+  border: 5px solid #f7958e;
+  border-top: none;
+  border-bottom: none;
+}
+
+#pause:hover {
+  opacity: 0.8;
+}
+
+.e-c-base {
+  fill: none;
+  stroke: #b6b6b6;
+  stroke-width: 4px;
+}
+
+.e-c-progress {
+  fill: none;
+  stroke: #f7958e;
+  stroke-width: 4px;
+  transition: stroke-dashoffset 0.7s;
+}
+
+.e-c-pointer {
+  fill: #fff;
+  stroke: #f7958e;
+  stroke-width: 2px;
+}
+
+#e-pointer {
+  transition: transform 0.7s;
+}
+
+@media screen and (max-width: 768px) {
+  .base_4 {
+    position: absolute;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 5;
+    animation: fadeIn 2s ease 0s 1 normal;
+    -webkit-animation: fadeIn 2s ease 0s 1 normal;
+  }
+
+  .base_3 {
+    position: absolute;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 4;
+    animation: fadeIn 2s ease 0s 1 normal;
+    -webkit-animation: fadeIn 2s ease 0s 1 normal;
+  }
+
+  .base_2 {
+    position: absolute;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 3;
+    animation: fadeIn 2s ease 0s 1 normal;
+    -webkit-animation: fadeIn 2s ease 0s 1 normal;
+  }
+
+  .base_1 {
+    position: absolute;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 2;
+    animation: fadeIn 2s ease 0s 1 normal;
+    -webkit-animation: fadeIn 2s ease 0s 1 normal;
+  }
+
+  .base {
+    position: absolute;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 1;
+  }
+
+  .back {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40vh;
+    height: 40vh;
+    margin: 0 auto;
+    /* z-index: 2; */
+    text-align: center;
+  }
+
+  .container {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    z-index: 6;
+    text-align: center;
+  }
+
+  .display-text-controlls {
+    position: relative;
+    z-index: 6;
+    position: absolute;
+    top: 14%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+  }
+
+  .display-remain-time {
+    font-family: "Roboto";
+    font-weight: 100;
+    font-size: 30vw;
+    color: #f7958e;
+  }
+
+  .display-time {
+    font-family: "Roboto";
+    font-weight: 100;
+    font-size: 4.5vw;
+    color: #f7958e;
+    text-align: center;
+  }
+
+  form {
+    padding: 0 1.5em;
+  }
+
+  .form-item {
+    margin-bottom: 0.75em;
+    width: 100%;
+  }
+
+  .form-item input {
+    background: #ffffff;
+    border: none;
+    border-bottom: 2px solid #24d48b;
+    color: #666;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 1em;
+    height: 50px;
+    transition: border-color 0.3s;
+    width: 100%;
+  }
+
+  .form-item input:focus {
+    border-bottom: 2px solid #7effb4;
+    outline: none;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

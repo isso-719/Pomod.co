@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>タイトル</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script src="assets/js/jquery.js"></script>
+<%# <script src="public/assets/js/bootstrap.min.js"></script> %>
+<link rel="stylesheet" href="assets/css/interval.css">
+<%# <script src="assets/js/timer.js"></script> %>
+
+
+</head>
+<body>
+  <div class="back">
+  </div>
+  <div class="container">
+  <div class="circle" style="visibility:hidden">
+    <svg width="100%" viewBox="0 0 220 220">
+      <g transform="translate(110,110)">
+        <circle r="100" class="e-c-base" />
+        <g transform="rotate(-90)">
+          <circle r="100" class="e-c-progress" />
+          <g id="e-pointer">
+            <circle cx="100" cy="0" r="3" class="e-c-pointer" />
+          </g>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+    <form action="/interval/post" method="post">
+  	  <div class="form-item">
+  	    <label for="topic"><h3>やったこと</h3></label>
+  	    <input type="text" name="topic" value="<%= @tomato.topic %>" placeholder="(例) 数学"></input>
+  	  </div>
+  	  <div class="form-item">
+  	    <label for="memo"><h3>一言メモ</h3></label>
+  	    <input type="text" name="memo" value="<%= @tomato.memo %>" placeholder="(例) トマト計算やった"></input>
+  	  </div>
+  	  <div class="button-panel">
+  	    <input type="submit" class="button" title="send" value="記録する"></input>
+  	  </div>
+    </form>
+
+    <button class="play" id="pause"></button>
+    <button class="stop" id="stop" onClick="stop()"></button>
+    <script>
+      function stop(){
+          location.href = "/";
+      }
+    </script>
+  </div>
+  <div class="display-text-controlls">
+    <div class="display-time">次のポモドーロ開始まで</div>
+  </div>
+  <div class="controlls">
+      <div class="display-remain-time">25:00</div>
+
+  </div>
+
+  <script>
+    window.onload = function () {
+    document.getElementById("pause").click();
+    }
+  </script>
+
+  <script>
+    let progressBar = document.querySelector(".e-c-progress");
+    let indicator = document.getElementById("e-indicator");
+    let pointer = document.getElementById("e-pointer");
+    let length = Math.PI * 2 * 100;
+
+    progressBar.style.strokeDasharray = length;
+
+    function update(value, timePercent) {
+      var offset = -length - (length * value) / timePercent;
+      progressBar.style.strokeDashoffset = offset;
+      pointer.style.transform = `rotate(${(360 * value) / timePercent}deg)`;
+    }
+
+
+    const displayOutput = document.querySelector(".display-remain-time");
+    const pauseBtn = document.getElementById("pause");
+    const setterBtns = document.querySelectorAll("button[data-setter]");
+
+    let intervalTimer;
+    let timeLeft;
+    let wholeTime = 1.1 * 60;
+    let isPaused = false;
+    let isStarted = false;
+
+    update(wholeTime, wholeTime);
+    displayTimeLeft(wholeTime);
+
+    function timer(seconds) {
+      let remainTime = Date.now() + seconds * 1000;
+      displayTimeLeft(seconds);
+
+      intervalTimer = setInterval(function() {
+        timeLeft = Math.round((remainTime - Date.now()) / 1000);
+        if (timeLeft < 61) {
+          var base = document.getElementsByClassName('base_1');
+          for(var i = 0; i < base.length; i++) {
+          base[i].style.display = "block";
+          }
+        }
+        if (timeLeft < 51) {
+          var base_2 = document.getElementsByClassName('base_2');
+          for(var i = 0; i < base_2.length; i++) {
+          base_2[i].style.display = "block";
+          }
+        }
+        if (timeLeft < 41) {
+          var base_3 = document.getElementsByClassName('base_3');
+          for(var i = 0; i < base_3.length; i++) {
+          base_3[i].style.display = "block";
+          }
+        }
+        if (timeLeft < 31) {
+          var base_4 = document.getElementsByClassName('base_4');
+          for(var i = 0; i < base_4.length; i++) {
+          base_4[i].style.display = "block";
+          }
+        }
+        if (timeLeft < 0) {
+          $.post( '/y1DNKiBUvP' )
+          location.href = "/timer";
+          display.innerHTML="00:00";
+        }
+        displayTimeLeft(timeLeft);
+      }, 1000);
+    }
+    function pauseTimer(event) {
+      if (isStarted === false) {
+        timer(wholeTime);
+        isStarted = true;
+        this.classList.remove("play");
+        this.classList.add("pause");
+
+        setterBtns.forEach(function(btn) {
+          btn.disabled = true;
+          btn.style.opacity = 0.5;
+        });
+      } else if (isPaused) {
+        this.classList.remove("play");
+        this.classList.add("pause");
+        timer(timeLeft);
+        isPaused = isPaused ? false : true;
+      } else {
+        this.classList.remove("pause");
+        this.classList.add("play");
+        clearInterval(intervalTimer);
+        isPaused = isPaused ? false : true;
+      }
+    }
+
+    function displayTimeLeft(timeLeft) {
+      let minutes = Math.floor(timeLeft / 60);
+      let seconds = timeLeft % 60;
+      let displayString = `${minutes < 10 ? "0" : ""}${minutes}:${
+        seconds < 10 ? "0" : ""
+      }${seconds}`;
+      displayOutput.textContent = displayString;
+      update(timeLeft, wholeTime);
+    }
+
+    pauseBtn.addEventListener("click", pauseTimer);
+  </script>
+
+</body>
+</html>
