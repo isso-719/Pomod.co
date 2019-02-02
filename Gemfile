@@ -11,7 +11,6 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 
 gem 'sinatra-activerecord'
-gem 'sqlite3'
 gem 'rake'
 gem 'bcrypt'
 
@@ -26,5 +25,12 @@ gem 'kaminari-sinatra'
 gem 'padrino-helpers'
 
 gem 'pry'
+
+group :production do
+  gem 'pg' , '~> 0.18'
+end
+group :development do
+  gem 'sqlite3'
+end
 
 # gem 'carrierwave'

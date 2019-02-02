@@ -18,7 +18,7 @@
   </div>
   <div class="container">
   <div class="circle" style="visibility:hidden">
-    <svg width="100%" viewBox="0 0 220 220">
+    <svg width="0%" viewBox="0 0 220 220">
       <g transform="translate(110,110)">
         <circle r="100" class="e-c-base" />
         <g transform="rotate(-90)">
@@ -31,19 +31,19 @@
     </svg>
   </div>
 
-    <form action="/interval/post" method="post">
-  	  <div class="form-item">
-  	    <label for="topic"><h3>やったこと</h3></label>
-  	    <input type="text" name="topic" value="<%= @tomato.topic %>" placeholder="(例) 数学"></input>
-  	  </div>
-  	  <div class="form-item">
-  	    <label for="memo"><h3>一言メモ</h3></label>
-  	    <input type="text" name="memo" value="<%= @tomato.memo %>" placeholder="(例) トマト計算やった"></input>
-  	  </div>
-  	  <div class="button-panel">
-  	    <input type="submit" class="button" title="send" value="記録する"></input>
-  	  </div>
-    </form>
+  <form action="/interval/post" method="post">
+    <div class="form-item">
+      <label for="topic"><h3>やったこと</h3></label>
+      <input type="text" name="topic" value="<%= @tomato.topic %>" placeholder="(例) 数学"></input>
+    </div>
+    <div class="form-item">
+      <label for="memo"><h3>一言メモ</h3></label>
+      <input type="text" name="memo" value="<%= @tomato.memo %>" placeholder="(例) トマト計算やった"></input>
+    </div>
+    <div class="button-panel">
+      <input type="submit" class="button" title="send" value="記録する"></input>
+    </div>
+  </form>
 
     <button class="play" id="pause"></button>
     <button class="stop" id="stop" onClick="stop()"></button>

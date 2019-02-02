@@ -86,7 +86,7 @@ body {
 
 .container {
   position: absolute;
-  top: 45%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0 auto;
@@ -240,6 +240,30 @@ form {
   outline: none;
 }
 
+.button-panel {
+  margin: 2em 0 0;
+  width: 100%;
+}
+
+.button-panel .button {
+  background: #24d48b;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 100%;
+}
+
+.button:hover {
+  background: #3eee87;
+}
+
 @media screen and (max-width: 768px) {
   .base_4 {
     position: absolute;
@@ -308,12 +332,13 @@ form {
 
   .container {
     position: absolute;
-    top: 45%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     margin: 0 auto;
     z-index: 6;
     text-align: center;
+    width: 100%;
   }
 
   .display-text-controlls {
@@ -365,6 +390,50 @@ form {
   .form-item input:focus {
     border-bottom: 2px solid #7effb4;
     outline: none;
+  }
+
+  .button-panel {
+    margin: 2em 0 0;
+    width: 100%;
+  }
+
+  .button-panel .button {
+    background: #24d48b;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    height: 50px;
+    font-family: "Noto Sans", sans-serif;
+    font-size: 1.2em;
+    letter-spacing: 0.05em;
+    text-align: center;
+    text-transform: uppercase;
+    transition: background 0.3s ease-in-out;
+    width: 100%;
+  }
+
+  .button:hover {
+    background: #3eee87;
+  }
+
+  .stop {
+    outline: none;
+    background: transparent;
+    border: none;
+    margin: 1em 1em;
+    width: 50px;
+    height: 50px;
+    position: relative;
+  }
+
+  #pause {
+    outline: none;
+    background: transparent;
+    border: none;
+    margin: 1em 1em;
+    width: 50px;
+    height: 50px;
+    position: relative;
   }
 }
 

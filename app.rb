@@ -165,6 +165,24 @@ post '/account/timer/tomato' do
 
 end
 
+post '/account/update/general' do
+
+  User.find_by(id: session[:user]).update({
+    name: params[:name],
+    mail: params[:mail]
+  })
+
+  redirect'/account'
+
+end
+
+post '/account/reset' do
+
+  User.find_by(id: session[:user]).tomatoes.destroy
+
+  redirect '/account'
+end
+
 post '/icon/shuffle' do
 
   user = User.find_by(id: session[:user])
