@@ -178,9 +178,26 @@ end
 
 post '/account/reset' do
 
-  User.find_by(id: session[:user]).tomatoes.destroy
+  @tomatoes = current_user.tomatoes.where.not(tomato_start_datetime: "", tomato_end_datetime: "")
+  @tomatoes.destroy_all
 
   redirect '/account'
+end
+
+post '/account/update/password' do
+
+
+
+end
+
+post '/account/delete' do
+
+  current_user.destroy
+  session[:user] = nil
+
+  redirect '/'
+
+
 end
 
 post '/icon/shuffle' do
