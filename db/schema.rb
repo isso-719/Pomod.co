@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2018_11_24_081359) do
     t.string "tomato_end_datetime"
     t.string "topic"
     t.string "memo"
+    t.integer "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_tomatoes_on_user_id"
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 2018_11_24_081359) do
     t.string "user_icon"
     t.string "user_gravatar"
     t.string "user_timer_mode", default: "tomato"
+    t.integer "goal"
   end
 
 end

@@ -251,6 +251,21 @@ post '/y2ENLiCUvQ' do
 
   tomato = User.find_by(id: session[:user]).tomatoes.last
   tomato.topic = time.strftime("%Y/%m/%d %H:%M:%S JST")
+  tomato.role == 0
+  tomato.save
+
+
+  redirect'/'
+
+end
+
+post '/z3FNLiDUvQ' do
+
+  time = Time.now.getutc + 9 * 60 * 60
+
+  tomato = User.find_by(id: session[:user]).tomatoes.last
+  tomato.topic = time.strftime("%Y/%m/%d %H:%M:%S JST")
+  tomato.role == 1
   tomato.save
 
 

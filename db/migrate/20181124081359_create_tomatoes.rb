@@ -6,7 +6,7 @@ class CreateTomatoes < ActiveRecord::Migration[5.2]
       t.string :tomato_end_datetime
       t.string :topic
       t.string :memo
-      # t.integer :complete
+      t.integer :role
       t.timestamps null: false
     end
   end
