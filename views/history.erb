@@ -69,7 +69,7 @@
           <th>開始日時</th>
           <th>終了日時</th>
         </tr>
-        <% @tomatoes.each do |tomato| %>
+        <% @tomatoes.reverse.each do |tomato| %>
           <tr>
           <td><%= tomato.topic %></td>
           <td><%= tomato.memo %></td>
