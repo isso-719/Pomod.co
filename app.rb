@@ -176,18 +176,23 @@ post '/account/update/general' do
 
 end
 
+post '/account/update/password' do
+
+  User.find_by(id: session[:user]).update({
+    password:params[:password],
+    password_confirmation:params[:password_confirmation]
+  })
+
+  redirect '/account'
+
+end
+
 post '/account/reset' do
 
   @tomatoes = current_user.tomatoes.where.not(tomato_start_datetime: "", tomato_end_datetime: "")
   @tomatoes.destroy_all
 
   redirect '/account'
-end
-
-post '/account/update/password' do
-
-
-
 end
 
 post '/account/delete' do
