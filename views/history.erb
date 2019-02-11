@@ -69,8 +69,8 @@
             <td><%= tomato.tomato_start_datetime %></td>
             <td><%= tomato.tomato_end_datetime %></td>
             <td>
-              <form action="/history/update" method="post">
-                <input type="submit" class="btn btn-primary pull-left" value="編集"></input>
+              <form action="/history/<%= tomato.id %>" method="post">
+                <input type="submit" class="button" value="編集"></input>
               </form>
             </td>
           </tr>

@@ -143,9 +143,21 @@ get '/history' do
   erb :history
 end
 
-post '/history/update' do
+post '/history/:id' do
+
+  @tomato = current_user.tomatoes.find(params[:id])
 
   erb :history_update
+end
+
+post '/history/:id/update' do
+  @tomato = current_user.tomatoes.find(params[:id])
+  @tomato.update({
+    topic: params[:topic],
+    memo: params[:memo]
+  })
+
+  redirect '/history'
 end
 
 # before '/timer' do

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>ポモドーロ履歴</title>
-  <link rel="stylesheet" href="/assets/css/history.css">
+  <link rel="stylesheet" href="/assets/css/history_update.css">
   <link rel="stylesheet" href="/assets/css/menu.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -52,7 +52,23 @@
 
   <div class="user_history">
     <h1 class="history_title">ポモドーロ項目を編集</h1>
-    
+    <div class="form-item">
+      <form action="/history/<%= @tomato.id %>/update" method="post">
+        <div class="form-item">
+          <label for="topic"><h3>勉強したもの</h3></label>
+          <input type="text" name="topic" value="<%= @tomato.topic %>" placeholder="(例) 数学">
+        </div>
+        <div class="form-item">
+          <label for="memo"><h3>一言メモ</h3></label>
+          <input type="text" name="memo" value="<%= @tomato.memo %>" placeholder="(例) トマト計算やった">
+        </div>
+          <h3>開始日時: <%= @tomato.tomato_start_datetime %></h3>
+          <h3>終了日時: <%= @tomato.tomato_end_datetime %></h3>
+        <div class="button-panel">
+          <input type="submit" class="button" title="Update" value="ポモドーロ情報をアップデート">
+        </div>
+      </form>
+    </div>
   </div>
 
 
