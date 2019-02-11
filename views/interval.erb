@@ -33,15 +33,15 @@
 
   <form action="/interval/post" method="post">
     <div class="form-item">
-      <label for="topic"><h3>やったこと</h3></label>
-      <input type="text" name="topic" value="<%= @tomato.topic %>" placeholder="(例) 数学"></input>
+      <label for="topic"><h3>勉強したもの</h3></label>
+      <input type="text" name="topic" value="<%= @tomato.topic %>" placeholder="(例) 数学">
     </div>
     <div class="form-item">
       <label for="memo"><h3>一言メモ</h3></label>
-      <input type="text" name="memo" value="<%= @tomato.memo %>" placeholder="(例) トマト計算やった"></input>
+      <input type="text" name="memo" value="<%= @tomato.memo %>" placeholder="(例) トマト計算やった">
     </div>
     <div class="button-panel">
-      <input type="submit" class="button" title="send" value="記録する"></input>
+      <input type="submit" class="button" title="send" value="記録する">
     </div>
   </form>
 
@@ -57,7 +57,7 @@
     <div class="display-time">次のポモドーロ開始まで</div>
   </div>
   <div class="controlls">
-      <div class="display-remain-time">25:00</div>
+      <div class="display-remain-time">5:00</div>
 
   </div>
 
@@ -168,6 +168,12 @@
     }
 
     pauseBtn.addEventListener("click", pauseTimer);
+  </script>
+  <script>
+    $('.button').click(function(e) {
+        alert('記録しました');
+        return e.preventDefault();
+    });
   </script>
 
 </body>

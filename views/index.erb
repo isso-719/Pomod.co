@@ -9,6 +9,7 @@
 
 
   <link rel="stylesheet" href="/assets/css/jquery.fullpage.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 
 
 
@@ -50,7 +51,7 @@
   <div id="fullpage">
       <div class="section">
         <a class="scroll"><span></span>Scroll</a>
-        <h1 class="about_title">タイトルいえい</h1>
+        <h1 class="about_title">Pomodco</h1>
       </div>
       <div class="section"></div>
       <div class="section"></div>
@@ -109,8 +110,56 @@
   </div>
 
   <div class="user_tree">
-    <h2>あなたはこれまで<%= current_user.tomatoes.count %>個分のトマトを育てました。</h2>
-    </form>
+    <div class="chart_goal">
+      <% if current_user.goal == 0 %>
+        <div class="goal_warning">
+        <p>設定で変更しましょう</p>
+        </div>
+      <% else %>
+        <canvas id="Chart_goal"></canvas>
+        <script>
+          var ctx = document.getElementById("Chart_goal").getContext('2d');
+          ctx.canvas.height = 320;
+          var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+              labels: ["達成済み <%= @week_tomatoes %>回", "目標　<%= current_user.goal %>回"],
+              datasets: [{
+                backgroundColor: [
+                  "#e74c3c",
+                  "#95a5a6"
+                ],
+                data: [<%= @goal_tomatoes %>, <%= @goal %>]
+              }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: '今週の目標',
+                    fontSize: 30
+                },
+                responsive: true,
+                maintainAspectRatio: false,
+                tooltips: {
+                  callbacks: {
+                    label: function (tooltipItem, data) {
+                      return data.labels[tooltipItem.index]
+                        + ": "
+                        + data.datasets[0].data[tooltipItem.index]
+                        <% if @goal_tomatoes == 100 %>
+                        + " %達成済み";
+                        <% else %>
+                        + " %";
+                        <% end %>
+                    }
+                  }
+                }
+              }
+            });
+          </script>
+        <% end %>
+      <h2>あなたはこれまで<%= @all_tomatoes %>個分のトマトを育てました。</>
+    </div>
   </div>
 
 

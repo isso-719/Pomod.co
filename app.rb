@@ -29,7 +29,30 @@ end
 
 get '/' do
 
+  if session[:user]
+
+    @all_tomatoes = current_user.tomatoes.where.not(tomato_start_datetime: "", tomato_end_datetime: "",role: false).count
+
+    @week_tomatoes = current_user.tomatoes.where("created_at > ?", 1.weeks.ago).where.not(tomato_start_datetime: "", tomato_end_datetime: "",role: "0").count
+
+    if @week_tomatoes >= current_user.goal
+
+      @goal_tomatoes = 100
+
+      @goal = 0
+
+    else
+
+      @goal_tomatoes = ((@week_tomatoes.to_f/current_user.goal) * 100).round(2)
+
+      @goal = 100-@goal_tomatoes
+
+    end
+
+  end
+
   erb :index
+
 end
 
 before '/login' do
@@ -120,6 +143,11 @@ get '/history' do
   erb :history
 end
 
+post '/history/update' do
+
+  erb :history_update
+end
+
 # before '/timer' do
 
 #     if session[:user]
@@ -164,6 +192,16 @@ post '/account/timer/tomato' do
   user = User.find_by(id: session[:user])
   user.user_timer_mode = "tomato"
   user.save
+
+  redirect '/account'
+
+end
+
+post '/account/update/goal' do
+
+  User.find_by(id: session[:user]).update({
+    goal: params[:goal]
+  })
 
   redirect '/account'
 
@@ -254,27 +292,13 @@ post '/y1DNKiBUvP' do
 
 end
 
-post '/y2ENLiCUvQ' do
-
-  time = Time.now.getutc + 9 * 60 * 60
-
-  tomato = User.find_by(id: session[:user]).tomatoes.last
-  tomato.topic = time.strftime("%Y/%m/%d %H:%M:%S JST")
-  tomato.role == 0
-  tomato.save
-
-
-  redirect'/'
-
-end
-
 post '/z3FNLiDUvQ' do
 
   time = Time.now.getutc + 9 * 60 * 60
 
   tomato = User.find_by(id: session[:user]).tomatoes.last
-  tomato.topic = time.strftime("%Y/%m/%d %H:%M:%S JST")
-  tomato.role == 1
+  tomato.role = !tomato.role
+  tomato.tomato_end_datetime = time.strftime("%Y/%m/%d %H:%M:%S JST")
   tomato.save
 
 

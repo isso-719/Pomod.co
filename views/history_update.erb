@@ -51,34 +51,8 @@
   </div>
 
   <div class="user_history">
-    <h1 class="history_title">ポモドーロ履歴</h1>
-
-    <tbody class="text-center">
-      <table class="history_table">
-        <tr>
-          <th>勉強したもの</th>
-          <th>一言メモ</th>
-          <th>開始日時</th>
-          <th>終了日時</th>
-          <th>編集</th>
-        </tr>
-        <% @tomatoes.reverse.each do |tomato| %>
-          <tr>
-            <td><%= tomato.topic %></td>
-            <td><%= tomato.memo %></td>
-            <td><%= tomato.tomato_start_datetime %></td>
-            <td><%= tomato.tomato_end_datetime %></td>
-            <td>
-              <form action="/history/update" method="post">
-                <input type="submit" class="btn btn-primary pull-left" value="編集"></input>
-              </form>
-            </td>
-          </tr>
-        <% end %>
-      </table>
-      <%= paginate @tomatoes %>
-    </tbody>
-
+    <h1 class="history_title">ポモドーロ項目を編集</h1>
+    
   </div>
 
 

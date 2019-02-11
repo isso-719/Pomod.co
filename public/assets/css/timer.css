@@ -20,9 +20,6 @@ body {
   /* margin: 0; */
 }
 
-@media screen and (max-width: 768px) {
-}
-
 .base_4 {
   position: absolute;
   width: auto;

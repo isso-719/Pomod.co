@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :user_icon
       t.string :user_gravatar
       t.string :user_timer_mode, default: "tomato"
-      t.integer :goal
+      t.integer :goal, default: "0"
     end
   end
 end
