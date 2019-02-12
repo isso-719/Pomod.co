@@ -160,6 +160,13 @@ post '/history/:id/update' do
   redirect '/history'
 end
 
+post '/history/:id/delete' do
+  @tomato = current_user.tomatoes.find(params[:id])
+  @tomato.destroy
+
+  redirect '/history'
+end
+
 # before '/timer' do
 
 #     if session[:user]

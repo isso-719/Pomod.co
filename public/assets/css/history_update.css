@@ -144,8 +144,33 @@ body {
   border-radius: 6px;
 }
 
-.button:hover {
+.button-panel .button:hover {
   background: #3eee87;
+}
+
+.button-panel_remove {
+  margin: 2em 0 0;
+  width: 100%;
+}
+
+.button-panel_remove .button {
+  background: #ea5549;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 45px;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 60%;
+  border-radius: 6px;
+}
+
+.button-panel_remove .button:hover {
+  background: #ea5549cc;
 }
 
 @media screen and (max-width: 768px) {

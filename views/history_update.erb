@@ -68,6 +68,11 @@
           <input type="submit" class="button" title="Update" value="ポモドーロ情報をアップデート">
         </div>
       </form>
+      <form action="/history/<%= @tomato.id %>/delete" method="post">
+        <div class="button-panel_remove">
+          <input type="submit" class="button" title="Update" value="ポモドーロ情報を削除する">
+        </div>
+      </form>
     </div>
   </div>
 
