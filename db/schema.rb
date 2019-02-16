@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2018_11_24_081359) do
     t.string "user_gravatar"
     t.string "user_timer_mode", default: "tomato"
     t.integer "goal", default: 0
+    t.string "errors"
   end
 
 end

@@ -1,82 +1,62 @@
 * {
-  /* margin: 0;
-  padding: 0; */
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   -webkit-appearance: none;
 }
 
+html {
+  height: 100%;
+}
+
 body {
-  /* color: #5e5e5e; */
+  height: 100%;
   font: 400 87.5%/1.5em "Noto Sans", sans-serif;
 }
 
 .about {
-  margin: 55px auto 0 0;
+  margin: 55px auto 0 0 !important;
+  height: 100%;
+}
+
+.top {
+  height: 100%;
+  cursor: url(../images/top_back.png);
+  background: #ddd url(../images/top_back.png) no-repeat center center;
+  background-size: cover;
+}
+
+.section_1 {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
 }
 
 .about_title {
   position: relative;
   text-align: center;
   top: calc(50% - 15%);
-  margin: auto;
+  margin: auto !important;
   font-size: 6vmax;
   color: #ffffff;
 }
 
-.scroll {
-  position: absolute;
-  bottom: 20px;
-  left: calc(50% - 21px);
-  z-index: 2;
-  display: inline-block;
-  -webkit-transform: translate(0, -50%);
-  transform: translate(0, -50%);
-  text-decoration: none;
-  padding-top: 60px;
-  color: #ffffff;
-}
-
-.scroll span {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 46px;
-  height: 46px;
-  margin-left: -23px;
-  border: 1px solid #fff;
-  border-radius: 100%;
-  box-sizing: border-box;
-}
-.scroll span::after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  content: "";
-  width: 16px;
-  height: 16px;
-  margin: -12px 0 0 -8px;
-  border-left: 1px solid #fff;
-  border-bottom: 1px solid #fff;
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  box-sizing: border-box;
-}
-
 .main {
   background: #ffffff;
-  margin: 90px auto 0;
+  margin: 90px auto 0 !important;
   max-width: 987px;
 }
 
 .usercard {
   background: #ffffff;
-  padding: 0 1em;
+  padding: 0 1em !important;
   width: 25%;
   float: left;
 }
 
 .username {
-  padding: 0.25em 0 0.25em 0.25em;
+  padding: 0.25em 0 0.25em 0.25em !important;
   text-align: center;
 }
 
@@ -90,12 +70,12 @@ body {
 }
 
 .timerbutton {
-  padding: 0.5em 0;
+  padding: 0.5em 0 !important;
 }
 
 .timer_btn {
   display: inline-block;
-  padding: 0.5em 1em;
+  padding: 0.5em 1em !important;
   text-decoration: none;
   background: #ea5549;
   transition: 0.3s ease-in-out;
@@ -115,12 +95,12 @@ body {
 }
 
 .historybutton {
-  padding: 0.5em 0;
+  padding: 0.5em 0 !important;
 }
 
 .history_btn {
   display: inline-block;
-  padding: 0.5em 1em;
+  padding: 0.5em 1em !important;
   text-decoration: none;
   background: #85bd56;
   transition: 0.3s ease-in-out;
@@ -141,7 +121,7 @@ body {
 
 .user_tree {
   background: #f0f0f0;
-  padding: 1em 1em;
+  padding: 1em 1em !important;
   width: 75%;
   float: left;
   border-radius: 6px;
@@ -150,7 +130,7 @@ body {
 @media screen and (max-width: 768px) {
   .usercard {
     background: #ffffff;
-    padding: 0 1em;
+    padding: 0 1em !important;
     width: 100%;
     float: left;
   }
@@ -163,19 +143,19 @@ body {
 
   .user_tree {
     background: #f0f0f0;
-    padding: 0 1em;
+    padding: 0 1em !important;
     width: 75%;
     border-radius: 6px;
   }
 
   .timerbutton {
-    padding: 0.5em 0;
+    padding: 0.5em 0 !important;
   }
 
   .timer_btn {
     display: inline-block;
-    padding: 0.5em 1em;
-    margin: 1em auto 0;
+    padding: 0.5em 1em !important;
+    margin: 1em auto 0 !important;
     text-decoration: none;
     background: #ea5549;
     transition: 0.3s ease-in-out;
@@ -189,13 +169,13 @@ body {
   }
 
   .historybutton {
-    padding: 0.5em 0;
+    padding: 0.5em 0 !important;
   }
 
   .history_btn {
     display: inline-block;
-    padding: 0.5em 1em;
-    margin: 0 auto 1em;
+    padding: 0.5em 1em !important;
+    margin: 0 auto 1em !important;
     text-decoration: none;
     background: #85bd56;
     transition: 0.3s ease-in-out;
@@ -210,7 +190,7 @@ body {
 
   .user_tree {
     background: #f0f0f0;
-    padding: 1em 1em;
+    padding: 1em 1em !important;
     width: 100%;
     float: left;
     border-radius: 6px;

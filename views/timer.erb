@@ -7,9 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <script src="assets/js/jquery.js"></script>
-<%# <script src="public/assets/js/bootstrap.min.js"></script> %>
 <link rel="stylesheet" href="assets/css/timer.css">
-<%# <script src="assets/js/timer.js"></script> %>
 
   <% if User.find_by(id: session[:user]).user_timer_mode=="timer" %>
     <style type="text/css">
@@ -111,25 +109,25 @@
 
       intervalTimer = setInterval(function() {
         timeLeft = Math.round((remainTime - Date.now()) / 1000);
-        if (timeLeft < 61) {
+        if (timeLeft < 1200) {
           var base = document.getElementsByClassName('base_1');
           for(var i = 0; i < base.length; i++) {
           base[i].style.display = "block";
           }
         }
-        if (timeLeft < 51) {
+        if (timeLeft < 900) {
           var base_2 = document.getElementsByClassName('base_2');
           for(var i = 0; i < base_2.length; i++) {
           base_2[i].style.display = "block";
           }
         }
-        if (timeLeft < 41) {
+        if (timeLeft < 600) {
           var base_3 = document.getElementsByClassName('base_3');
           for(var i = 0; i < base_3.length; i++) {
           base_3[i].style.display = "block";
           }
         }
-        if (timeLeft < 31) {
+        if (timeLeft < 300) {
           var base_4 = document.getElementsByClassName('base_4');
           for(var i = 0; i < base_4.length; i++) {
           base_4[i].style.display = "block";

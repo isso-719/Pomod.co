@@ -106,7 +106,6 @@ before '/signup' do
 end
 
 get '/signup' do
-
   erb :signup
 end
 
@@ -122,6 +121,7 @@ post '/signup' do
 
     redirect '/'
   else
+    @user.errors = 1
     redirect '/signup'
   end
 
