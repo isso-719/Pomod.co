@@ -74,12 +74,12 @@ post '/login' do
   if user && user.authenticate(params[:password])
     session[:user] = user.id
 
+  redirect '/'
   else
-    redirect'/login'
+    erb :login_error
 
   end
 
-  redirect '/'
 end
 
 before '/logout' do
@@ -106,10 +106,13 @@ before '/signup' do
 end
 
 get '/signup' do
+
   erb :signup
 end
 
+
 post '/signup' do
+
   @user = User.create(
     name:params[:name],
     mail:params[:mail],
@@ -121,10 +124,16 @@ post '/signup' do
 
     redirect '/'
   else
-    @user.errors = 1
-    redirect '/signup'
-  end
 
+    @users = User.new(
+    name:params[:name],
+    mail:params[:mail],
+    password:params[:password],
+    password_confirmation:params[:password_confirmation])
+    @users.save
+
+    erb :signup_error
+  end
 
 end
 

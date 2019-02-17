@@ -127,6 +127,10 @@ body {
   border-radius: 6px;
 }
 
+.goal_warning h1 {
+  margin: 1em 0 !important;
+}
+
 @media screen and (max-width: 768px) {
   .usercard {
     background: #ffffff;

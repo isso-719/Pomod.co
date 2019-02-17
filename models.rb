@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :tomatoes
 
   validates :name, presence: true, length: { maximum: 8 }, format: { with: /\A[a-z0-9]+\z/i }
-  validates :mail, uniqueness: true, presence: true, format: { with: /.+@.+/ }
+  validates :mail, uniqueness: true, presence: true, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i }
 
   before_create do
     self.user_gravatar = SecureRandom.hex(32)

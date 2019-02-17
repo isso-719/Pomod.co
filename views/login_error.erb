@@ -2,8 +2,8 @@
 <html lang="ja">
 <head>
 	<meta charset="UTF-8">
-	<title>アカウント新規登録</title>
-	<link rel="stylesheet" href="/assets/css/signup.css">
+	<title>ログイン</title>
+	<link rel="stylesheet" href="/assets/css/login.css">
 	<link rel="stylesheet" href="/assets/css/menu.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 </head>
@@ -33,13 +33,10 @@
 	</header>
 
 	<div class="form-wrapper">
-  	<h1>アカウント作成</h1>
+  	<h1>ログイン</h1>
+			エラーがあります。
 
-  	<form action="/signup" method="post">
-  	  <div class="form-item">
-  	    <label for="name"></label>
-  	    <input type="text" name="name" placeholder="ニックネーム(英数字8文字以内)"></input>
-  	  </div>
+  	<form action="/login" method="post">
   	  <div class="form-item">
   	    <label for="mail"></label>
   	    <input type="text" name="mail" placeholder="メールアドレス"></input>
@@ -48,16 +45,12 @@
   	    <label for="password"></label>
   	    <input type="password" name="password" placeholder="パスワード"></input>
   	  </div>
-  	  <div class="form-item">
-  	    <label for="password"></label>
-  	    <input type="password" name="password_confirmation" placeholder="パスワードの確認"></input>
-  	  </div>
   	  <div class="button-panel">
-  	    <input type="submit" class="button" title="Signup" value="アカウントを作成！"></input>
+  	    <input type="submit" class="button" title="login" value="ログインする"></input>
   	  </div>
  	 </form>
   	<div class="form-footer">
-    	<p><a href="/login">すでに作成済みの場合</a></p>
+    	<p><a href="/signup">アカウントを作ろう。</a></p>
   	</div>
 	</div>
 </body>

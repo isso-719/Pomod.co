@@ -35,6 +35,15 @@
 	<div class="form-wrapper">
   	<h1>アカウント作成</h1>
 
+			<% if @users.errors.present? %>
+			エラーがあります。
+			<ul>
+					<% @users.errors.full_messages.each do |message| %>
+							<li><%=message%></li>
+					<% end%>
+			</ul>
+	<% end %>
+
   	<form action="/signup" method="post">
   	  <div class="form-item">
   	    <label for="name"></label>
