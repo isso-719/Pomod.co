@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
 
   has_many :tomatoes
 
-  validates :name, presence: true, length: { maximum: 8 }, format: { with: /\A[a-z0-9]+\z/i }
+  validates :name, presence: true, length: { maximum: 16 }
   validates :mail, uniqueness: true, presence: true, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i }
 
   before_create do
