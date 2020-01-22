@@ -8,7 +8,7 @@
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/header.css" />
   <link rel="stylesheet" href="assets/css/index-sign-off.css" />
-    <!-- ファビコン -->
+  <!-- ファビコン -->
   <link rel="icon" href="assets/images/favicon.ico">
   <!-- スマホ用アイコン -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/app_icon_180.png">
@@ -24,7 +24,7 @@
 
 <body>
   <header>
-    <div id="usericon"><img src="assets/images/guest.svg"></div>
+    <div id="usericon"><img src="assets/images/guest.svg" alt="guest_icon"></div>
     <h4>Hello, <%= current_user.username %></h4>
   </header>
   <div class="border"></div>
@@ -33,9 +33,9 @@
     <div id="content">
       <main>
         <div class="logo-wrap">
-          <img class="logo" src="assets/images/logo.svg">
+          <img class="logo" src="assets/images/logo.svg" alt="logo">
         </div>
-        <h1>Pomodco</h1>
+        <h1>Pomod.co</h1>
         <p><b>オシャレで集中できるポモドーロタイマー</b></p>
       </main>
       <menu>
@@ -54,5 +54,15 @@
       </menu>
     </div>
   </div>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-84261059-4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-84261059-4');
+  </script>
 </body>
 </html>

@@ -1,9 +1,28 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8" />
   <title>Pomod.co</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="オシャレで集中できるポモドーロタイマー">
+  <meta itemprop="name" content="Pomod.co">
+  <meta itemprop="image" content="https://pomod.co/assets/images/ogp.png">
+  <link rel="canonical" href="https://pomod.co" />
+  <link rel="alternate" type="application/rss+xml" href="https://pomod.co/assets/sitemap.xml" />
+  <!-- OGP -->
+  <meta property="fb:app_id" content="1203442269812622">
+  <meta property="og:url" content="https://pomod.co">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pomod.co">
+  <meta property="og:description" content="オシャレで集中できるポモドーロタイマー">
+  <meta property="og:image" content="https://pomod.co/assets/images/ogp.png">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pomod.co">
+  <meta name="twitter:description" content="オシャレで集中できるポモドーロタイマー">
+  <meta name="twitter:image" content="https://pomod.co/assets/images/ogp.png">
+  <meta name="twitter:site" content="@i5so_" />
   <!-- CSS -->
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/header.css" />
@@ -24,7 +43,7 @@
 
 <body>
   <header>
-    <div id="usericon"><img src="assets/images/guest.svg"></div>
+    <div id="usericon"><img src="assets/images/guest.svg" alt="guest_icon"></div>
     <h4>Hello, Guest</h4>
   </header>
   <div class="border"></div>
@@ -32,26 +51,32 @@
     <div id="content">
       <main>
         <div class="logo-wrap">
-          <img class="logo" src="assets/images/logo.svg">
+          <img class="logo" src="assets/images/logo.svg" alt="logo">
         </div>
-        <h1>Pomodco</h1>
+        <h1>Pomod.co</h1>
         <p><b>オシャレで集中できるポモドーロタイマー</b></p>
       </main>
       <menu>
         <div class="signin">
-          <a href="/signin">
-            <div><i class="fas fa-sign-in-alt"></i></div>
-          </a>
+          <div><a href="/signin" aria-label="signin"><i class="fas fa-sign-in-alt"></i></a></div>
           <p>Signin</p>
         </div>
         <div class="about">
-          <a href="/about">
-            <div><i class="far fa-question-circle"></i></div>
-          </a>
+          <div><a href="/about" aria-label="about"><i class="far fa-question-circle"></i></a></div>
           <p>About</p>
         </div>
       </menu>
     </div>
   </div>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-84261059-4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-84261059-4');
+  </script>
 </body>
 </html>

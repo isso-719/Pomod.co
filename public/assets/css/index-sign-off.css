@@ -62,15 +62,24 @@ menu p {
   float: left;
   margin-right: 80px;
 }
-.signin a div {
+.signin div {
+  position: relative;
   width: 60px;
   height: 60px;
   border-radius: 10px;
   background: #efeeee;
   box-shadow: 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
 }
-.signin a div:active {
+.signin div:active {
   box-shadow: -6px -6px 12px #cbcaca, 6px 6px 12px #ffffff;
+}
+.signin a {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .signin i {
   line-height: 60px;
@@ -80,15 +89,24 @@ menu p {
 .about {
   float: left;
 }
-.about a div {
+.about div {
+  position: relative;
   width: 60px;
   height: 60px;
   border-radius: 10px;
   background: #efeeee;
   box-shadow: 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
 }
-.about a div:active {
+.about div:active {
   box-shadow: -6px -6px 12px #cbcaca, 6px 6px 12px #ffffff;
+}
+.about a {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .about i {
   line-height: 60px;
