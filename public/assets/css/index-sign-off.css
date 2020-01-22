@@ -49,7 +49,7 @@ main {
   filter: drop-shadow(2px 2px 2px rgba(160, 160, 160, 0.8));
 }
 menu {
-  margin: 35px auto;
+  margin: 64px auto;
   width: 200px;
   height: 94px;
   text-align: center;
@@ -84,10 +84,14 @@ menu p {
 .signin i {
   line-height: 60px;
   font-size: 25px;
-  color: #000000;
+  color: #8e96a6;
+}
+.signin p {
+  color: #8e96a6;
 }
 .about {
   float: left;
+  color: #8e96a6;
 }
 .about div {
   position: relative;
@@ -111,5 +115,8 @@ menu p {
 .about i {
   line-height: 60px;
   font-size: 25px;
-  color: #000000;
+  color: #8e96a6;
+}
+.about p {
+  color: #8e96a6;
 }

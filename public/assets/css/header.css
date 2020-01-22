@@ -46,6 +46,9 @@ header a {
   background: #efeeee;
   box-shadow: 5px 5px 10px #bfbebe, -5px -5px 10px #ffffff;
 }
+#usericon:active {
+  box-shadow: -5px -5px 10px #bfbebe, 5px 5px 10px #ffffff;
+}
 #usericon img {
   margin: 5px;
   width: 40px;
