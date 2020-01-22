@@ -1,0 +1,4 @@
+language: ruby
+ruby:
+  - 2.6.2
+script: ruby app.rb -o 0.0.0.0
