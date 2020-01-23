@@ -1,17 +1,41 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8" />
   <title>Pomod.co</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pomod.co(ポモドコ)はオシャレで集中できるポモドーロタイマーです。このアプリは25分作業して5分休むことで集中力を継続することのできるポモドーロ勉強法を基にして作られています。">
+  <meta itemprop="name" content="Pomod.co">
+  <meta itemprop="image" content="https://pomod.co/assets/images/ogp.png">
+  <link rel="canonical" href="https://pomod.co" />
+  <link rel="alternate" type="application/rss+xml" href="https://pomod.co/assets/sitemap.xml" />
+  <!-- OGP -->
+  <meta property="fb:app_id" content="1203442269812622">
+  <meta property="og:url" content="https://pomod.co">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pomod.co">
+  <meta property="og:description" content="Pomod.co(ポモドコ)はオシャレで集中できるポモドーロタイマーです。このアプリは25分作業して5分休むことで集中力を継続することのできるポモドーロ勉強法を基にして作られています。">
+  <meta property="og:image" content="https://pomod.co/assets/images/ogp.png">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pomod.co">
+  <meta name="twitter:description" content="Pomod.co(ポモドコ)はオシャレで集中できるポモドーロタイマーです。このアプリは25分作業して5分休むことで集中力を継続することのできるポモドーロ勉強法を基にして作られています。">
+  <meta name="twitter:image" content="https://pomod.co/assets/images/ogp.png">
+  <meta name="twitter:site" content="@i5so_" />
   <!-- CSS -->
-  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/header.css" />
-  <link rel="stylesheet" href="assets/css/index-sign-off.css" />
+  <link rel="stylesheet" href="assets/css/index-sign-on.css" />
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.css" />
+  <!-- JS -->
+  <script type="text/javascript" src="//d3js.org/d3.v3.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/cal-heatmap/3.3.10/cal-heatmap.min.js"></script>
   <!-- ファビコン -->
   <link rel="icon" href="assets/images/favicon.ico">
   <!-- スマホ用アイコン -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/app_icon_180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <!-- Windows用アイコン -->
   <meta name="application-name" content="Pomod.co" />
   <meta name="msapplication-square70x70logo" content="assets/images/app_icon_70.png" />
@@ -28,7 +52,11 @@
     <h4>Hello, <%= current_user.username %></h4>
   </header>
   <div class="border"></div>
-
+  <div id="cal-heatmap"></div>
+  <script type="text/javascript">
+    var cal = new CalHeatMap();
+    cal.init({});
+  </script>
   <div id="content-wrap">
     <div id="content">
       <main>
@@ -40,21 +68,36 @@
       </main>
       <menu>
         <div class="signin">
-          <a href="/signin">
-            <div><i class="fas fa-sign-in-alt"></i></div>
-          </a>
+          <div><a href="/signin" aria-label="signin"><i class="fas fa-sign-in-alt"></i></a></div>
           <p>Signin</p>
         </div>
         <div class="about">
-          <a href="/about">
-            <div><i class="far fa-question-circle"></i></div>
-          </a>
+          <div><a href="/about" aria-label="about"><i class="far fa-question-circle"></i></a></div>
           <p>About</p>
         </div>
       </menu>
     </div>
   </div>
 
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+  <script>
+    $(function () {
+      $('a').click(function () {
+        location.href = $(this).attr('href');
+        return false;
+      });
+    });
+  </script>
+  <script>
+    (function (d) {
+      var c = d.createElement('link');
+      c.type = 'text/css';
+      c.rel = 'stylesheet';
+      c.href = 'https://use.fontawesome.com/releases/v5.0.6/css/all.css';
+      var s = d.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(c, s);
+    })(document);
+  </script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-84261059-4"></script>
   <script>

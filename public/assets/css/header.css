@@ -16,6 +16,7 @@ button,
 select,
 textarea {
   -webkit-appearance: none;
+  -webkit-user-select: auto;
 }
 body {
   background-color: #efeeee;

@@ -24,13 +24,14 @@
   <meta name="twitter:image" content="https://pomod.co/assets/images/ogp.png">
   <meta name="twitter:site" content="@i5so_" />
   <!-- CSS -->
-  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/header.css" />
   <link rel="stylesheet" href="assets/css/index-sign-off.css" />
   <!-- ファビコン -->
   <link rel="icon" href="assets/images/favicon.ico">
   <!-- スマホ用アイコン -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/images/app_icon_180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <!-- Windows用アイコン -->
   <meta name="application-name" content="Pomod.co" />
   <meta name="msapplication-square70x70logo" content="assets/images/app_icon_70.png" />
@@ -69,6 +70,25 @@
     </div>
   </div>
 
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+  <script>
+    $(function () {
+      $('a').click(function () {
+        location.href = $(this).attr('href');
+        return false;
+      });
+    });
+  </script>
+  <script>
+    (function (d) {
+      var c = d.createElement('link');
+      c.type = 'text/css';
+      c.rel = 'stylesheet';
+      c.href = 'https://use.fontawesome.com/releases/v5.0.6/css/all.css';
+      var s = d.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(c, s);
+    })(document);
+  </script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-84261059-4"></script>
   <script>
