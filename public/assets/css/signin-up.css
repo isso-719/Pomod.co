@@ -35,7 +35,7 @@ main h1 {
 #container {
   margin: 0 auto;
   padding: 20px 15px;
-  max-width: 450px;
+  max-width: 360px;
   border-radius: 8px;
   background: #efeeee;
   box-shadow: 5px 5px 8px #cbcaca, -2px -2px 8px #ffffff;
@@ -87,9 +87,11 @@ form p {
   padding: 12px;
   border-radius: 50px;
   width: 100%;
+  height: 55px;
   font-size: 1.3rem;
   box-shadow: 5px 5px 8px #cbcaca, -2px -2px 8px #ffffff;
 }
 #container input[type="submit"]:active {
-  box-shadow: -5px -5px 8px #cbcaca, 2px 2px 8px #ffffff;
+  box-shadow: inset 5px 5px 8px #cbcaca, -2px -2px 8px #ffffff;
+  font-size: 1.2rem;
 }

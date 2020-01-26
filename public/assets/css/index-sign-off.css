@@ -9,26 +9,30 @@
   }
 }
 #content {
+  max-width: 400px;
   position: relative;
-}
-@media (max-width: 768px) {
-  #content {
-    padding: 20px;
-  }
+  padding: 10px 20px;
+  margin: 0 auto;
 }
 @media (min-width: 768px) {
   #content {
-    position: relative;
-    top: 47.5%;
+    margin: 0;
+    top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+    padding: 15px 20px;
   }
 }
 main {
+  padding: 20px;
   position: relative;
-  width: 100%;
   text-align: center;
+  border-radius: 16px;
+  box-shadow: 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
+}
+main p {
+  font-size: 14.5px;
 }
 .logo-wrap {
   position: relative;
@@ -36,7 +40,7 @@ main {
   width: 200px;
   height: 200px;
   border-radius: 180px;
-  box-shadow: 20px 20px 40px #bfbebe, -20px -20px 40px #ffffff;
+  box-shadow: 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
 }
 .logo {
   position: absolute;
@@ -49,17 +53,19 @@ main {
   filter: drop-shadow(2px 2px 2px rgba(160, 160, 160, 0.8));
 }
 menu {
-  margin: 64px auto;
-  width: 200px;
+  margin: 20px auto 0 auto;
+  padding: 15px 0;
   height: 94px;
   text-align: center;
+  border-radius: 16px;
+  box-shadow: 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
 }
 menu p {
   margin-top: 10px;
   color: #000000;
 }
 .signin {
-  float: left;
+  display: inline-block;
   margin-right: 80px;
 }
 .signin div {
@@ -71,7 +77,11 @@ menu p {
   box-shadow: 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
 }
 .signin div:active {
-  box-shadow: -6px -6px 12px #cbcaca, 6px 6px 12px #ffffff;
+  box-shadow: inset 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
+}
+.signin div:active i {
+  transform: scale(0.9);
+  color: #00000090;
 }
 .signin a {
   display: block;
@@ -84,14 +94,13 @@ menu p {
 .signin i {
   line-height: 60px;
   font-size: 25px;
-  color: #8e96a6;
+  color: #00000070;
 }
 .signin p {
   color: #000000;
 }
 .about {
-  float: left;
-  color: #8e96a6;
+  display: inline-block;
 }
 .about div {
   position: relative;
@@ -102,7 +111,11 @@ menu p {
   box-shadow: 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
 }
 .about div:active {
-  box-shadow: -6px -6px 12px #cbcaca, 6px 6px 12px #ffffff;
+  box-shadow: inset 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
+}
+.about div:active i {
+  transform: scale(0.9);
+  color: #00000090;
 }
 .about a {
   display: block;
@@ -115,7 +128,7 @@ menu p {
 .about i {
   line-height: 60px;
   font-size: 25px;
-  color: #8e96a6;
+  color: #00000070;
 }
 .about p {
   color: #000000;

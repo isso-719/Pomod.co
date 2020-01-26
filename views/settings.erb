@@ -45,19 +45,13 @@
 </head>
 
 <body>
-  <!-- <header>
-    <div id="usericon">
-      <a href="/settings"><img src="assets/images/guest.svg" alt="guest_icon"></a>
-    </div>
-    <h4>Hello, <%= current_user.username %></h4>
-  </header> -->
   <menu>
     <div class="logo-wrap">
       <img class="logo" src="assets/images/logo.svg" alt="logo">
     </div>
-    <div id="on">
-      <div><i class="fas fa-home"></i></div>
-    </div>
+    <a href="/">
+      <div id="child"><i class="fas fa-home"></i></div>
+    </a>
     <a href="/timer_set">
       <div id="child"><i class="far fa-clock"></i></div>
     </a>
@@ -67,9 +61,9 @@
     <a href="/todo">
       <div id="child"><i class="fas fa-check"></i></div>
     </a>
-    <a href="/settings">
-      <div id="child"><i class="fas fa-cog"></i></div>
-    </a>
+    <div id="on">
+      <div><i class="fas fa-cog"></i></div>
+    </div>
     <a href="/signout">
       <div id="logout"><i class="fas fa-sign-out-alt"></i></div>
     </a>

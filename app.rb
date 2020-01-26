@@ -25,3 +25,15 @@ get '/' do
     erb :index_sign_on
   end
 end
+
+get '/timer' do
+  erb :timer
+end
+
+get '/settings' do
+  erb :settings
+end
+
+get '/chart' do
+  erb :chart
+end

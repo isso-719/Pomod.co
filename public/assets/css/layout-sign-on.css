@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans JP", sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+}
+input,
+button,
+select,
+textarea {
+  -webkit-appearance: none;
+  -webkit-user-select: auto;
+}
+a {
+  color: #000000;
+}
+body {
+  background: #ebebeb;
+  overflow: hidden;
+}
+menu {
+  position: fixed;
+  padding: 32px 0 5px 0;
+  width: 150px;
+  height: 100vh;
+  overflow: auto;
+  background: #ebebeb;
+}
+menu div {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px auto;
+  text-align: center;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  background: #efeeee;
+  box-shadow: 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
+}
+menu div:active {
+  box-shadow: inset 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
+}
+#child i {
+  line-height: 60px;
+}
+#on {
+  width: 145px;
+  height: 80px;
+  border-right: 5px solid #8f8f8f;
+  border-radius: 0px;
+  background: #efeeee;
+  box-shadow: 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
+}
+#on div {
+  top: 10px;
+  box-shadow: inset 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
+}
+#on div i {
+  line-height: 60px;
+}
+#logout {
+  margin-top: 64px;
+}
+#logout i {
+  line-height: 64px;
+}
+.logo-wrap {
+  position: relative;
+  margin: 0 auto 32px auto;
+  width: 50%;
+  height: calc(150px * 0.5);
+  border-radius: 50%;
+  box-shadow: 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
+}
+.logo-wrap:active {
+  box-shadow: inset 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
+}
+.logo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 50%;
+  filter: drop-shadow(2px 2px 2px rgba(160, 160, 160, 0.8));
+}
+main {
+  position: relative;
+  padding: 32px 64px;
+  left: 150px;
+  width: calc(100vw - 150px);
+  height: 100vh;
+  border-radius: 100px 0 0 0;
+  background: #efeeee;
+  box-shadow: 1px 1px 3px #e6e3e3, -6px -6px 12px #ffffff;
+}

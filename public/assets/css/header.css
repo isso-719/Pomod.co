@@ -48,7 +48,7 @@ header a {
   box-shadow: 5px 5px 10px #bfbebe, -5px -5px 10px #ffffff;
 }
 #usericon:active {
-  box-shadow: -5px -5px 10px #bfbebe, 5px 5px 10px #ffffff;
+  box-shadow: inset 5px 5px 10px #bfbebe, -5px -5px 10px #ffffff;
 }
 #usericon img {
   margin: 5px;
@@ -57,7 +57,7 @@ header a {
   border-radius: 150px;
 }
 .border {
-  width: 100%;
+  width: 100vw;
   height: 7.5px;
   background: rgb(246, 0, 0);
   background: linear-gradient(
