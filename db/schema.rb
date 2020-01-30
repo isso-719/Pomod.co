@@ -13,11 +13,12 @@
 ActiveRecord::Schema.define(version: 2020_01_30_015852) do
 
   create_table "pomodoros", force: :cascade do |t|
-    t.string "topic"
-    t.string "time"
+    t.integer "time"
     t.string "did"
     t.string "understand"
     t.string "next"
+    t.datetime "start"
+    t.datetime "stop"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

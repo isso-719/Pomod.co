@@ -1,5 +1,39 @@
+function getUrlParameter(name) {
+  name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+  var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+  var results = regex.exec(location.search);
+  return results === null
+    ? ""
+    : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
 $(function() {
-  var time = 1500;
+  set_min = parseInt(getUrlParameter("minute"));
+  set_sec = parseInt(getUrlParameter("second"));
+  if (set_min < 10) {
+    if (set_sec < 10) {
+      $("#timer").text(
+        "0" + getUrlParameter("minute") + ":" + "0" + getUrlParameter("second")
+      );
+    } else {
+      $("#timer").text(
+        "0" + getUrlParameter("minute") + ":" + getUrlParameter("second")
+      );
+    }
+  } else {
+    if (set_sec < 10) {
+      $("#timer").text(
+        getUrlParameter("minute") + ":" + "0" + getUrlParameter("second")
+      );
+    } else {
+      $("#timer").text(
+        getUrlParameter("minute") + ":" + getUrlParameter("second")
+      );
+    }
+  }
+  first_time = set_min * 60 + set_sec;
+
+  var time = first_time;
   var timer = time;
   var setI;
   var min;

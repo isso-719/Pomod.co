@@ -5,6 +5,8 @@ require 'sinatra/reloader' if development?
 require './models'
 require './src/signin-up-out'
 
+require './src/time'
+
 enable :sessions
 
 helpers do
@@ -38,15 +40,19 @@ get '/timer_set' do
 end
 
 get '/timer' do
+  @time = Time.now
   pomodoro = current_user.pomodoros.create(
-    time: 0
+    time: 0,
+    start: @time.timezone('Asia/Tokyo')
   )
   erb :timer
 end
 
 post '/pJsDQTKCQSepB8AzkcPmNcEm88VSzwKx' do
+  @time = Time.now
   pomodoro = current_user.pomodoros.last.update(
-    time: params[:time]
+    time: params[:time],
+    stop: @time.timezone('Asia/Tokyo')
   )
 end
 
