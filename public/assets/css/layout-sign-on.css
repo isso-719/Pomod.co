@@ -20,6 +20,7 @@ textarea {
 }
 a {
   color: #000000;
+  text-decoration: none;
 }
 body {
   background: #ebebeb;
@@ -50,11 +51,14 @@ menu div:active {
 #child i {
   line-height: 60px;
 }
+menu a div:active img,
+menu a div:active i {
+  transform: scale(0.9);
+}
 #on {
   width: 145px;
   height: 80px;
   border-right: 5px solid #8f8f8f;
-  border-radius: 0px;
   background: #efeeee;
   box-shadow: 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
 }
@@ -64,11 +68,12 @@ menu div:active {
 }
 #on div i {
   line-height: 60px;
+  transform: scale(0.9);
 }
-#logout {
+#signout {
   margin-top: 64px;
 }
-#logout i {
+#signout i {
   line-height: 64px;
 }
 .logo-wrap {
@@ -94,11 +99,54 @@ menu div:active {
 }
 main {
   position: relative;
-  padding: 32px 64px;
+  padding: 64px;
   left: 150px;
-  width: calc(100vw - 150px);
-  height: 100vh;
+  width: calc(100% - 278px);
+  height: calc(100vh - 128px);
   border-radius: 100px 0 0 0;
   background: #efeeee;
-  box-shadow: 1px 1px 3px #e6e3e3, -6px -6px 12px #ffffff;
+  box-shadow: 1px 1px 3px #e6e3e3, -6px -6px 12px #fefefe;
+}
+@media (max-width: 768px) {
+  menu {
+    display: flex;
+    justify-content: space-between;
+    height: 72px;
+    width: calc(100% - 40px);
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    padding: 20px;
+  }
+  .logo-wrap-wrap {
+    display: none;
+  }
+  .signout-wrap {
+    display: none;
+  }
+  menu a {
+    height: 64px;
+    width: 64px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  menu div {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    margin: 16px;
+    font-size: 1.2rem;
+    list-style: none;
+    /* margin-right: 10px; */
+  }
+  #on {
+    display: none;
+  }
+  main {
+    width: 100%;
+    height: calc(100vh - 224px);
+    left: 0;
+    padding: 16px;
+  }
 }

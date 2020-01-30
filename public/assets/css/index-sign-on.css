@@ -1,0 +1,127 @@
+#title {
+  display: inline-block;
+  width: calc(70% - 32px);
+  vertical-align: top;
+}
+#title hr {
+  margin-bottom: 16px;
+}
+#title {
+  height: 100%;
+}
+#todo {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 0 10px;
+  padding: 25px;
+  width: calc(30% - 32px);
+  height: calc(100% - 50px);
+  overflow: scroll;
+  vertical-align: top;
+  border-radius: 10px;
+  background: #efeeee;
+  box-shadow: inset 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
+}
+@media (max-width: 1023px) {
+  #todo {
+    display: none;
+  }
+  #title {
+    width: 100%;
+  }
+}
+.todo-add {
+  position: absolute;
+  top: 32px;
+  right: 25px;
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  border-radius: 10px;
+  background: #efeeee;
+  box-shadow: 3px 4px 5px 0 #cbcaca, -2px -2px 3px #ffffff;
+}
+.todo-add:active {
+  box-shadow: inset 3px 4px 5px 0 #cbcaca, -2px -2px 3px #ffffff;
+}
+.todo-add i {
+  line-height: 2rem;
+}
+.card {
+  width: 100%;
+  height: 64px;
+  margin: 24px 0;
+  border-radius: 10px;
+  background: #efeeee;
+  box-shadow: 4px 4px 7px 0 #cbcaca, -6px -6px 12px #ffffff;
+}
+.card div {
+  position: relative;
+  display: inline-block;
+  width: calc(100% - 85px);
+  height: 100%;
+}
+.card h3 {
+  position: absolute;
+  margin-left: 10%;
+  font-size: 16px;
+  margin: auto 0 0 10%;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+input[type="checkbox"] {
+  display: inline-block;
+  position: relative;
+  top: -15px;
+  height: 32px;
+  width: 64px;
+  box-shadow: -7px -7px 15px rgba(255, 255, 255, 0.65),
+    7px 7px 15px rgba(70, 70, 70, 0.12),
+    inset -7px -7px 15px rgba(255, 255, 255, 0.65),
+    inset 7px 7px 15px rgba(70, 70, 70, 0.12);
+  border-radius: 40px;
+  border: 5px solid #d4d3d3;
+  left: 15px;
+  outline: none;
+  cursor: pointer;
+}
+input[type="checkbox"]:before {
+  content: "";
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  transition: 0.2s;
+}
+input[type="checkbox"]:before {
+  height: 22px;
+  width: 22px;
+  background-color: #f65555;
+  box-shadow: -7px -7px 15px rgba(255, 255, 255, 0.65),
+    7px 7px 15px rgba(70, 70, 70, 0.12);
+  border-radius: 50%;
+  left: 0px;
+}
+input[type="checkbox"]:checked:before {
+  left: 32px;
+  background-color: #00c750;
+}
+.more {
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  border-radius: 15px;
+  background: #efeeee;
+  box-shadow: 4px 4px 7px 0 #cbcaca, -6px -6px 12px #ffffff;
+}
+.more:active {
+  box-shadow: inset 4px 4px 7px 0 #cbcaca, -6px -6px 12px #ffffff;
+}
+.more p {
+  line-height: 40px;
+}
+#content {
+  width: 100%;
+  height: calc(100% - 96px);
+  vertical-align: top;
+}

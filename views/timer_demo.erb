@@ -2,7 +2,6 @@
 <html lang="ja">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<title>Timer - Pomod.co</title>
 	<meta name="description" content="Pomod.co(ポモドコ)はオシャレで集中できるポモドーロタイマーです。このアプリは25分作業して5分休むことで集中力を継続することのできるポモドーロ勉強法を基にして作られています。">
 	<meta itemprop="name" content="Pomod.co">
@@ -88,6 +87,21 @@
 
 
 	<script>
+		$(window).on("resize orientationchange", function (e) {
+			var wsw = window.screen.width;
+			if (wsw <= 640) {
+				//デバイス横幅640以下
+				$("meta[name='viewport']").attr("content", "width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,shrink-to-fit=no");
+			} else if (wsw < 980) {
+				//デバイス横幅980より下
+				$("meta[name='viewport']").attr("content", "width=980px,user-scalable=0,shrink-to-fit=no");
+			} else {
+				//それ以外
+				$("meta[name='viewport']").attr("content", "width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,shrink-to-fit=no");
+			}
+		}).trigger("resize");
+	</script>
+	<script>
 		(function (d) {
 			var c = d.createElement('link');
 			c.type = 'text/css';
@@ -98,18 +112,6 @@
 		})(document);
 	</script>
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-	<script>
-		$(window).on("resize orientationchange", function (e) {
-			var wsw = window.screen.width;
-			if (wsw <= 360) {
-				//デバイス横幅360以下
-				$("meta[name='viewport']").attr("content", "width=400");
-			} else {
-				//それ以外
-				$("meta[name='viewport']").attr("content", "width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,shrink-to-fit=no");
-			}
-		}).trigger("resize");
-	</script>
 	<script src="assets/js/timer.js"></script>
 	<script src="assets/js/antisleep.js" defer></script>
 </body>

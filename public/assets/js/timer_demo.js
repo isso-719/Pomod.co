@@ -52,7 +52,7 @@ $(function() {
     display();
 
     count += 1;
-    $.post("/pJsDQTKCQSepB8AzkcPmNcEm88VSzwKx", { time: count });
+    $.post("/time", { time: count });
 
     if (time <= 0) {
       $("#timer").html("Time&nbspUP!");
