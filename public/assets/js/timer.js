@@ -31,8 +31,8 @@ $(function() {
       );
     }
   }
-  first_time = set_min * 60 + set_sec;
 
+  first_time = set_min * 60 + set_sec;
   var time = first_time;
   var timer = time;
   var setI;
