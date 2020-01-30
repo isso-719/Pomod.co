@@ -50,6 +50,18 @@ post '/pJsDQTKCQSepB8AzkcPmNcEm88VSzwKx' do
   )
 end
 
+get '/interval' do
+  erb :interval
+end
+
+post '/tQQBu3FNVhG2AKRv4G9aRRuiqc4nWbmx' do
+  pomodoro = current_user.pomodoros.last.update(
+    did: params[:did],
+    understand: params[:understand],
+    next: params[:next]
+  )
+end
+
 get '/chart' do
   erb :chart
 end
