@@ -1,4 +1,23 @@
+function getUrlParameter(name) {
+  name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+  var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+  var results = regex.exec(location.search);
+  return results === null
+    ? ""
+    : decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
 $(function() {
+  set_min = parseInt(getUrlParameter("minute"));
+  set_sec = parseInt(getUrlParameter("second"));
+
+  var target = document.getElementById("href");
+  target.href =
+    "/timer?minute=" +
+    getUrlParameter("minute") +
+    "&second=" +
+    getUrlParameter("second");
+
   var time = 300;
   var timer = time;
   var setI;
@@ -61,7 +80,11 @@ $(function() {
         .get(0)
         .play();
       setTimeout(function() {
-        window.location.href = "/timer";
+        window.location.href =
+          "/timer?minute=" +
+          getUrlParameter("minute") +
+          "&second=" +
+          getUrlParameter("second");
       }, 5000);
     }
   }

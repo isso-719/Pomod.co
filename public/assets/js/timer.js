@@ -10,26 +10,32 @@ function getUrlParameter(name) {
 $(function() {
   set_min = parseInt(getUrlParameter("minute"));
   set_sec = parseInt(getUrlParameter("second"));
+
+  var target = document.getElementById("href");
+  target.href =
+    "/interval?minute=" +
+    getUrlParameter("minute") +
+    "&second=" +
+    getUrlParameter("second");
+
+  if (set_min + set_sec <= 0) {
+    window.location.href = "/";
+  }
+  if (set_min > 9999) {
+    window.location.href = "/";
+  }
+  if (set_sec > 59) {
+    window.location.href = "/";
+  }
+
   if (set_min < 10) {
-    if (set_sec < 10) {
-      $("#timer").text(
-        "0" + getUrlParameter("minute") + ":" + "0" + getUrlParameter("second")
-      );
-    } else {
-      $("#timer").text(
-        "0" + getUrlParameter("minute") + ":" + getUrlParameter("second")
-      );
-    }
+    $("#timer").text(
+      "0" + getUrlParameter("minute") + ":" + getUrlParameter("second")
+    );
   } else {
-    if (set_sec < 10) {
-      $("#timer").text(
-        getUrlParameter("minute") + ":" + "0" + getUrlParameter("second")
-      );
-    } else {
-      $("#timer").text(
-        getUrlParameter("minute") + ":" + getUrlParameter("second")
-      );
-    }
+    $("#timer").text(
+      getUrlParameter("minute") + ":" + getUrlParameter("second")
+    );
   }
 
   first_time = set_min * 60 + set_sec;
@@ -96,7 +102,11 @@ $(function() {
         .get(0)
         .play();
       setTimeout(function() {
-        window.location.href = "/interval";
+        window.location.href =
+          "/interval?minute=" +
+          getUrlParameter("minute") +
+          "&second=" +
+          getUrlParameter("second");
       }, 5000);
     }
   }
