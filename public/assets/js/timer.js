@@ -19,13 +19,13 @@ $(function() {
     getUrlParameter("second");
 
   if (set_min + set_sec <= 0) {
-    window.location.href = "/";
+    window.location.href = "/nwnSEUmMbH9L5E3JvJX4WcznifBrZanN";
   }
   if (set_min > 9999) {
-    window.location.href = "/";
+    window.location.href = "/nwnSEUmMbH9L5E3JvJX4WcznifBrZanN";
   }
   if (set_sec > 59) {
-    window.location.href = "/";
+    window.location.href = "/nwnSEUmMbH9L5E3JvJX4WcznifBrZanN";
   }
 
   if (set_min < 10) {
@@ -51,12 +51,12 @@ $(function() {
   function display() {
     min = Math.floor(time / 60);
     sec = time % 60;
-    if (time <= 5999) {
-      min = ("00" + min).slice(-2);
+    if (time >= 60000) {
+      min = ("0000" + min).slice(-4);
     } else if (time >= 6000) {
       min = ("000" + min).slice(-3);
-    } else if (time >= 60000) {
-      min = ("0000" + min).slice(-4);
+    } else if (time <= 5999) {
+      min = ("00" + min).slice(-2);
     }
     sec = ("00" + sec).slice(-2);
     $("#timer").html(min + ":" + sec);

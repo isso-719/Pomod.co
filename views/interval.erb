@@ -75,6 +75,7 @@
 			<br>
 			<button id="plusMin" aria-label="plusMin">+1min</button>
 			<button id="minusMin" aria-label="minusMin">-1min</button>
+			<a id="href" href="/"><button id="back" aria-label="back"><i class="fas fa-home"></i></button></a>
 		</div>
 	</div>
 	<div id="record">
@@ -126,24 +127,7 @@
 			}
 		}).trigger("resize");
 	</script>
-	<script>
-		$(function () {
-			$('#ajax').on('click', function () {
-				$('.dammy').css('display', 'block');
-				$('.done').css('display', 'none');
-				$('.fail').css('display', 'none');
-				$.post('/tQQBu3FNVhG2AKRv4G9aRRuiqc4nWbmx', { did: $('#did').val(), understand: $('#understand').val(), next: $('#next').val() })
-					.done(function (data) {
-						$('.dammy').css('display', 'none');
-						$('.done').css('display', 'block');
-					})
-					.fail(function (data) {
-						$('.dammy').css('display', 'none');
-						$('.fail').css('display', 'block');
-					})
-			});
-		});
-	</script>
+	<script src="assets/js/record.js"></script>
 	<script src="assets/js/interval.js"></script>
 	<script src="assets/js/antisleep.js" defer></script>
 </body>

@@ -221,15 +221,19 @@ form p {
   text-align: center;
 }
 #record input {
+  position: relative;
   outline: none;
-  border: none;
-  background: #efeeee;
+  border: solid 2px #dedede;
   margin: 15px 0;
   padding: 8px 12px;
   border-radius: 50px;
   width: 80%;
   font-size: 0.8rem;
-  box-shadow: -2px -2px 8px #cbcaca, 2px 2px 8px #ffffff;
+  background: #efeeee;
+  box-shadow: inset 5px 5px 8px #cbcaca, -5px -5px 8px #ffffff;
+}
+#record input:active {
+  border: solid 2px #dddddd;
 }
 #record button {
   outline: none;

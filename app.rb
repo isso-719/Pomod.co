@@ -56,6 +56,11 @@ post '/pJsDQTKCQSepB8AzkcPmNcEm88VSzwKx' do
   )
 end
 
+get '/nwnSEUmMbH9L5E3JvJX4WcznifBrZanN' do
+  pomodoro = current_user.pomodoros.last.destroy
+  redirect '/'
+end
+
 get '/interval' do
   erb :interval
 end

@@ -18,135 +18,98 @@ textarea {
   -webkit-appearance: none;
   -webkit-user-select: auto;
 }
+li,
+ul {
+  list-style: none;
+}
 a {
   color: #000000;
   text-decoration: none;
 }
 body {
-  background: #ebebeb;
-  overflow: hidden;
+  background: #e2e2e2;
+  display: flex;
 }
 menu {
-  position: fixed;
-  padding: 32px 0 5px 0;
   width: 150px;
   height: 100vh;
-  overflow: auto;
-  background: #ebebeb;
-}
-menu div {
   position: relative;
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 20px auto;
-  text-align: center;
-  font-size: 1.2rem;
-  border-radius: 10px;
-  background: #efeeee;
-  box-shadow: 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
-}
-menu div:active {
-  box-shadow: inset 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
-}
-#child i {
-  line-height: 60px;
-}
-menu a div:active img,
-menu a div:active i {
-  transform: scale(0.9);
-}
-#on {
-  width: 145px;
-  height: 80px;
-  border-right: 5px solid #8f8f8f;
-  background: #efeeee;
-  box-shadow: 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
-}
-#on div {
-  top: 10px;
-  box-shadow: inset 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
-}
-#on div i {
-  line-height: 60px;
-  transform: scale(0.9);
-}
-#signout {
-  margin-top: 64px;
-}
-#signout i {
-  line-height: 64px;
-}
-.logo-wrap {
-  position: relative;
-  margin: 0 auto 32px auto;
-  width: 50%;
-  height: calc(150px * 0.5);
-  border-radius: 50%;
-  box-shadow: 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
-}
-.logo-wrap:active {
-  box-shadow: inset 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }
 .logo {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  width: 50%;
-  filter: drop-shadow(2px 2px 2px rgba(160, 160, 160, 0.8));
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background-image: url(../images/logo.svg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 40px;
+  box-shadow: 5px 5px 8px #acabab, -2px -2px 8px #ffffff;
 }
+.logo:active {
+  box-shadow: inset 5px 5px 8px #acabab, -2px -2px 8px #ffffff;
+}
+menu a {
+  width: 60px;
+  height: 60px;
+  background-color: #efeeee;
+  border-radius: 8px;
+  box-shadow: 5px 5px 8px #acabab, -2px -2px 8px #ffffff;
+  text-align: center;
+  line-height: 60px;
+  font-size: 1.5rem;
+}
+menu a:active {
+  box-shadow: inset 5px 5px 8px #acabab, -2px -2px 8px #ffffff;
+}
+menu a:active i {
+  transform: scale(0.9);
+}
+.disabled {
+  box-shadow: inset 5px 5px 8px #acabab, -2px -2px 8px #ffffff;
+}
+
 main {
-  position: relative;
-  padding: 64px;
-  left: 150px;
-  width: calc(100% - 278px);
-  height: calc(100vh - 128px);
+  background: #ebebeb;
+  width: calc(100% - 128px);
   border-radius: 100px 0 0 0;
-  background: #efeeee;
-  box-shadow: 1px 1px 3px #e6e3e3, -6px -6px 12px #fefefe;
+  box-shadow: 5px 5px 8px #acabab, -2px -2px 8px #ffffff;
+  padding: 64px;
 }
+
+/* #container {
+  display: flex;
+} */
+
 @media (max-width: 768px) {
-  menu {
-    display: flex;
-    justify-content: space-between;
-    height: 72px;
-    width: calc(100% - 40px);
-    position: absolute;
-    bottom: 0;
-    overflow: hidden;
-    padding: 20px;
-  }
-  .logo-wrap-wrap {
-    display: none;
-  }
-  .signout-wrap {
-    display: none;
-  }
-  menu a {
-    height: 64px;
-    width: 64px;
-    display: flex;
-    align-items: center;
+  body {
     flex-direction: column;
   }
-  menu div {
-    height: 100%;
+  menu {
     width: 100%;
-    position: relative;
-    margin: 16px;
-    font-size: 1.2rem;
-    list-style: none;
-    /* margin-right: 10px; */
+    height: 100px;
+    flex-direction: row;
+    align-items: center;
   }
-  #on {
-    display: none;
+  .logo {
+    width: 60px;
+    height: 60px;
+    background-size: 32px;
+  }
+  menu a {
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    font-size: 1.2rem;
   }
   main {
-    width: 100%;
-    height: calc(100vh - 224px);
-    left: 0;
-    padding: 16px;
+    padding: 18px 4px;
+    width: calc(100% - 8px);
+  }
+  main h1 {
+    text-align: center;
   }
 }
