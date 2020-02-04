@@ -24,8 +24,13 @@ get '/' do
   # ユーザーログイン時
   else
     user = current_user
+    @notices = Notice.limit(5)
     erb :index_sign_on
   end
+end
+
+get '/about' do
+  erb :about
 end
 
 get '/timer_set' do
@@ -83,4 +88,23 @@ end
 
 get '/settings' do
   erb :settings
+end
+
+get '/administrator' do
+  erb :administrator
+end
+
+post '/administrator' do
+  if params[:user] == 'administrator' && params[:password] == 'cai'
+    erb :manage
+  else
+    redirect '/'
+  end
+end
+
+post '/make_notice' do
+    @notice = Notice.create(
+    title: params[:title],
+    content: params[:content])
+  erb :manage
 end

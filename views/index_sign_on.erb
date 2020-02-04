@@ -57,7 +57,7 @@
     <a href="/signout"><i class="fas fa-sign-out-alt"></i></a>
   </menu>
   <main>
-    <h1>HOME<hr></h1>
+    <h1>Dashboard<hr></h1>
     <div id="container">
       <div class="time_set">
         <h2>タイマーをセットする</h2>
@@ -79,15 +79,24 @@
         <button class="set_time">タイマースタート</button>
       </div>
       <div id="achievement">
-        <h2>今月の達成状況</h2>
-        <h3>今月は100%達成しました</h3>
-
-
+        <h2>今月の目標達成状況</h2>
+        <h3>今月は77%達成しました(未実装)</h3>
+        <div class="percent">
+          <div class="progress" style="width:77%;"></div>
+        </div>
+        <small>770時間/1,000時間</small>
       </div>
       <div id="notice">
         <h2>運営からのお知らせ</h2>
-        <div class="card">
-          <p>現在ベータ版です</p>
+        <div class="card_wrap">
+          <% @notices.reverse.each do |notice| %>
+          <div class="card">
+            <h4><%= notice.title %></h4>
+            <p><%= notice.content %></p>
+            <small><%= notice.created_at %></small>
+          </div>
+          <% end %>
+
         </div>
 
       </div>
