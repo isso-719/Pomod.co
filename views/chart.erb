@@ -3,7 +3,10 @@
 <head>
   <!-- Meta -->
   <meta charset="UTF-8" />
-  <title>Pomod.co</title>
+  <link rel="dns-prefetch" href="https://code.jquery.com">
+  <link rel="dns-prefetch" href="https://use.fontawesome.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <title>Chart - Pomod.co</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Pomod.co(ポモドコ)はオシャレで集中できるポモドーロタイマーです。このアプリは25分作業して5分休むことで集中力を継続することのできるポモドーロ勉強法を基にして作られています。">
   <meta itemprop="name" content="Pomod.co">
@@ -14,18 +17,19 @@
   <meta property="fb:app_id" content="1203442269812622">
   <meta property="og:url" content="https://pomod.co">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Pomod.co">
+  <meta property="og:title" content="Chart - Pomod.co">
   <meta property="og:description" content="Pomod.co(ポモドコ)はオシャレで集中できるポモドーロタイマーです。このアプリは25分作業して5分休むことで集中力を継続することのできるポモドーロ勉強法を基にして作られています。">
   <meta property="og:image" content="https://pomod.co/assets/images/ogp.png">
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Pomod.co">
+  <meta name="twitter:title" content="Chart - Pomod.co">
   <meta name="twitter:description" content="Pomod.co(ポモドコ)はオシャレで集中できるポモドーロタイマーです。このアプリは25分作業して5分休むことで集中力を継続することのできるポモドーロ勉強法を基にして作られています。">
   <meta name="twitter:image" content="https://pomod.co/assets/images/ogp.png">
   <meta name="twitter:site" content="@i5so_" />
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/layout-sign-on.css" />
   <link rel="stylesheet" href="assets/css/index-sign-on.css" />
+  <link rel="stylesheet" href="assets/css/chart.css" />
   <!-- JS -->
 
   <!-- ファビコン -->
@@ -45,44 +49,76 @@
 </head>
 
 <body>
+
   <menu>
-    <a href="/">
-      <div class="logo-wrap">
-        <img class="logo" src="assets/images/logo.svg" alt="logo">
-      </div>
-    </a>
-    <a href="/">
-      <div id="child"><i class="fas fa-home"></i></div>
-    </a>
-    <a href="/timer_set">
-      <div id="child"><i class="far fa-clock"></i></div>
-    </a>
-    <div id="on">
-      <div><i class="fas fa-chart-line"></i></div>
-    </div>
-    <a href="/todo">
-      <div id="child"><i class="fas fa-check"></i></div>
-    </a>
-    <a href="/settings">
-      <div id="child"><i class="fas fa-cog"></i></div>
-    </a>
-    <a href="/signout">
-      <div id="signout"><i class="fas fa-sign-out-alt"></i></div>
-    </a>
+    <a class="logo" href="/"></a>
+    <a href="/chart" class="disabled"><i class="fas fa-chart-line"></i></a>
+    <a class="disabled"><i class="fas fa-check"></i></a>
+    <a class="disabled"><i class="fas fa-cog"></i></a>
+    <a href="/signout"><i class="fas fa-sign-out-alt"></i></a>
   </menu>
   <main>
+    <h1>Chart(未実装)<hr></h1>
+    <div id="container">
+      <div id="achievement-wrap">
+        <div id="achievement">
+          <h2>今週の目標達成状況</h2>
+          <h3>今週は77%達成しました(未実装)</h3>
+          <div class="percent">
+            <div class="progress" style="width:77%;"></div>
+          </div>
+          <small>770時間/1,000時間</small>
+        </div>
+        <div id="achievement">
+          <h2>今月の目標達成状況</h2>
+          <h3>今月は77%達成しました(未実装)</h3>
+          <div class="percent">
+            <div class="progress second" style="width:77%;"></div>
+          </div>
+          <small>770時間/1,000時間</small>
+        </div>
+      </div>
+      <div id="summary">
+        <canvas id="line"></canvas>
+      </div>
+      <div id="result">
+        <table>
+          <tr>
+            <th>やったこと</th>
+            <th>理解したこと</th>
+            <th>次にやること</th>
+            <th>計測時間</th>
+            <th>開始日時</th>
+          </tr>
+          <tr>
+            <td>トリさん</td>
+            <td>空を飛ぶこと</td>
+            <td>グリーン</td>
+            <td>山</td>
+            <td>山</td>
+          </tr>
+          <tr>
+            <td>クジラさん</td>
+            <td>潮を吹くこと</td>
+            <td>ブルー</td>
+            <td>海</td>
+            <td>山</td>
+          </tr>
+          <tr>
+            <td>カニさん</td>
+            <td>反復横飛び</td>
+            <td>レッド</td>
+            <td>川</td>
+            <td>山</td>
+          </tr>
+        </table>
+      </div>
+      <span class="dammy"></span>
+    </div>
   </main>
-
-
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
-  <script>
-    $(function () {
-      $('a').click(function () {
-        location.href = $(this).attr('href');
-        return false;
-      });
-    });
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous">
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
   <script>
     (function (d) {
       var c = d.createElement('link');
@@ -92,6 +128,29 @@
       var s = d.getElementsByTagName('script')[0];
       s.parentNode.insertBefore(c, s);
     })(document);
+  </script>
+  <script>
+    var line = document.getElementById('line').getContext('2d');
+    var chart = new Chart(line, {
+      // 作成したいチャートタイプ
+      type: 'line',
+
+      // データセットの情報
+      data: {
+        labels: ["6日前", "5日前", "4日前", "3日前", "2日前", "昨日", "今日"],
+        datasets: [{
+          label: "勉強時間",
+          borderColor: 'rgb(255, 99, 132)',
+          data: [0, 10, 5, 2, 20, 30, 45],
+        }]
+      },
+
+      // 設定オプションはここに
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
   </script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-84261059-4"></script>

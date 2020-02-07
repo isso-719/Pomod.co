@@ -114,7 +114,7 @@ section {
 
 .arrowWrap {
   position: absolute;
-  top: 95vh;
+  top: 80vh;
   left: 50%;
   transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
