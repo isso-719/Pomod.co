@@ -7,7 +7,12 @@ end
 
 class User < ActiveRecord::Base
   has_secure_password
+  has_many :user_settings
   has_many :pomodoros
+end
+
+class UserSettings < ActiveRecord::Base
+  belongs_to :user
 end
 
 class Pomodoro < ActiveRecord::Base
