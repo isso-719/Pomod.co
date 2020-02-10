@@ -30,9 +30,6 @@ get '/' do
       else
         @pomodoro = current_user.pomodoros.sum(:time)
         @percent = (@pomodoro.to_d / 3600 / @user_setting.goal.to_d * 100).floor(2).to_f
-        if @percent > 100
-          @percent == 100
-        end
         @study_summary = "#{(@pomodoro.to_d / 3600).floor(2).to_f}""時間/""#{@user_setting.goal}""時間"
       end
     end
