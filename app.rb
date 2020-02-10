@@ -23,12 +23,15 @@ get '/' do
 
   # ユーザーログイン時
   else
-    @user_setting = UserSetting.find_by(user_id: session[:user])
-    if current_user.pomodoros.nil?
-      @percent = 0
-    else
-      @pomodoro = current_user.pomodoros.sum(:time)
-      @percent = (@pomodoro.to_d / @user_setting.goal.to_d / 36).floor(2).to_f
+    unless UserSetting.find_by(user_id: session[:user]).nil?
+      @user_setting = UserSetting.find_by(user_id: session[:user])
+      if current_user.pomodoros.nil?
+        @percent = 0
+      else
+        @pomodoro = current_user.pomodoros.sum(:time)
+        @percent = (@pomodoro.to_d / 3600 / @user_setting.goal.to_d).floor(2).to_f
+        @study_summary = "#{(@pomodoro.to_d / 3600).floor(2).to_f}""時間/""#{@user_setting.goal}""時間"
+      end
     end
 
     @notices = Notice.limit(5)

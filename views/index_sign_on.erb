@@ -80,7 +80,7 @@
         <button class="set_time">タイマースタート</button>
       </div>
       <div id="achievement">
-        <% if @user_setting.nil? %>
+        <% if UserSetting.find_by(user_id: session[:user]).nil?  %>
           <h2>1日の目標を設定しよう</h2>
           <h4>目標を設定することで作業の計画が立てやすくなります</h4>
           <div class="picker">
@@ -96,7 +96,7 @@
           <div class="percent">
             <div class="progress" style="width:<%= @percent %>%;"></div>
           </div>
-          <small><%= (@pomodoro.to_d / 3600).floor(2).to_f %>時間/<%= @user_setting.goal %>時間</small>
+          <small><%= @study_summary %></small>
         <% end %>
       </div>
       <div id="notice">
