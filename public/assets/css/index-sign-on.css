@@ -99,19 +99,7 @@ input[type="number"]::-webkit-inner-spin-button {
   border-radius: 8px;
   box-shadow: 5px 5px 8px #acabab, -2px -2px 8px #ffffff;
 }
-.set_goal {
-  outline: none;
-  border: none;
-  border-radius: 50px;
-  width: 256px;
-  height: 50px;
-  font-size: 1rem;
-  background: #efeeee;
-  box-shadow: 5px 5px 8px #cbcaca, -2px -2px 8px #ffffff;
-}
-.set_goal:active {
-  box-shadow: inset 5px 5px 8px #cbcaca, -2px -2px 8px #ffffff;
-}
+#dammy
 .percent {
   position: relative;
   max-width: 480px;
