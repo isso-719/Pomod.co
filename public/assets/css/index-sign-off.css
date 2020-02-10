@@ -1,0 +1,135 @@
+#content-wrap {
+  width: 100%;
+  height: calc(100vh - 87.5px);
+  position: relative;
+}
+@media (max-width: 768px) {
+  #content-wrap {
+    position: relative;
+  }
+}
+#content {
+  max-width: 400px;
+  position: relative;
+  padding: 10px 20px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  #content {
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 15px 20px;
+  }
+}
+main {
+  padding: 20px;
+  position: relative;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
+}
+main p {
+  font-size: 14.5px;
+}
+.logo-wrap {
+  position: relative;
+  margin: 0px auto 20px;
+  width: 200px;
+  height: 200px;
+  border-radius: 180px;
+  box-shadow: 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
+}
+.logo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 100px;
+  filter: drop-shadow(2px 2px 2px rgba(160, 160, 160, 0.8));
+}
+menu {
+  margin: 20px auto 0 auto;
+  padding: 15px 0;
+  height: 94px;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
+}
+menu p {
+  margin-top: 10px;
+  color: #000000;
+}
+.signin {
+  display: inline-block;
+  margin-right: 80px;
+}
+.signin div {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  background: #efeeee;
+  box-shadow: 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
+}
+.signin div:active {
+  box-shadow: inset 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
+}
+.signin div:active i {
+  transform: scale(0.9);
+  color: #00000090;
+}
+.signin a {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.signin i {
+  line-height: 60px;
+  font-size: 25px;
+  color: #00000070;
+}
+.signin p {
+  color: #000000;
+}
+.about {
+  display: inline-block;
+}
+.about div {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  background: #efeeee;
+  box-shadow: 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
+}
+.about div:active {
+  box-shadow: inset 6px 6px 12px #cbcaca, -6px -6px 12px #ffffff;
+}
+.about div:active i {
+  transform: scale(0.9);
+  color: #00000090;
+}
+.about a {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.about i {
+  line-height: 60px;
+  font-size: 25px;
+  color: #00000070;
+}
+.about p {
+  color: #000000;
+}
