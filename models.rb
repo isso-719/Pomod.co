@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :pomodoros
 end
 
-class UserSettings < ActiveRecord::Base
+class UserSetting < ActiveRecord::Base
   belongs_to :user
 end
 

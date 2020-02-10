@@ -71,20 +71,33 @@
         </div>
         <div class="picker">
           <input class="min" type="number" value="25" size="4" min="0" max="9999" pattern="\d*">
-          <p>:</p>
+          <p>分</p>
           <input class="sec" type="number" value="00" size="2" min="00" max="59" pattern="\d*">
+          <p>秒</p>
         </div>
         <br>
         <p class="fail" style="display: none;">この数字は指定できません</p>
         <button class="set_time">タイマースタート</button>
       </div>
       <div id="achievement">
-        <h2>今週の目標達成状況</h2>
-        <h3>今週は77%達成しました(未実装)</h3>
-        <div class="percent">
-          <div class="progress" style="width:77%;"></div>
-        </div>
-        <small>770時間/1,000時間</small>
+        <% if @user_setting.nil? %>
+          <h2>1日の目標を設定しよう</h2>
+          <h4>目標を設定することで作業の計画が立てやすくなります</h4>
+          <div class="picker">
+            <input class="hour" type="number" value="1" size="4" min="0" max="24" pattern="\d*">
+            <p>時間</p>
+          </div>
+          <br>
+          <p class="fail" style="display: none;">この数字は指定できません</p>
+          <button class="set_goal">目標をセットする</button>
+        <% else %>
+          <h2>今日の目標達成状況</h2>
+          <h3>今週は<%= @percent %>%達成しました</h3>
+          <div class="percent">
+            <div class="progress" style="width:<%= @percent %>%;"></div>
+          </div>
+          <small><%= (@pomodoro.to_d / 3600).floor(2).to_f %>時間/<%= @user_setting.goal %>時間</small>
+        <% end %>
       </div>
       <div id="notice">
         <h2>運営からのお知らせ</h2>
@@ -102,8 +115,7 @@
       </div>
     </div>
   </main>
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous">
-  </script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script>
     (function (d) {
       var c = d.createElement('link');
@@ -115,6 +127,7 @@
     })(document);
   </script>
   <script src="assets/js/set_time.js"></script>
+  <script src="assets/js/set_goal.js"></script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-84261059-4"></script>
   <script>

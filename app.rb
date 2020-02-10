@@ -23,25 +23,27 @@ get '/' do
 
   # ユーザーログイン時
   else
-    user = current_user
+    @user_setting = UserSetting.find_by(user_id: session[:user])
+    if current_user.pomodoros.nil?
+      @percent = 0
+    else
+      @pomodoro = current_user.pomodoros.sum(:time)
+      @percent = (@pomodoro.to_d / @user_setting.goal.to_d / 36).floor(2).to_f
+    end
+
     @notices = Notice.limit(5)
     erb :index_sign_on
   end
 end
 
-get '/about' do
-  erb :about
+post '/set_goal' do
+  goal = current_user.user_settings.create(
+    goal: params[:goal]
+  )
 end
 
-get '/timer_set' do
-    # ユーザー未ログイン時
-  unless session[:user]
-    redirect '/'
-
-  # ユーザーログイン時
-  else
-    erb :timer_set
-  end
+get '/about' do
+  erb :about
 end
 
 get '/timer' do
