@@ -9,6 +9,7 @@ require './src/progress-bar'
 # require './src/graph'
 
 enable :sessions
+set :sessions, :expire_after => 2592000
 
 helpers do
   def current_user
