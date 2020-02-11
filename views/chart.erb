@@ -151,7 +151,7 @@
       data: {
         labels: ["6日前", "5日前", "4日前", "3日前", "2日前", "昨日", "今日"],
         datasets: [{
-          label: "勉強時間",
+          label: "勉強時間(分)",
           borderColor: 'rgb(255, 99, 132)',
           data: <%= @array %>,
         }]
@@ -160,7 +160,7 @@
       // 設定オプションはここに
       options: {
         responsive: true,
-        maintainAspectRatio: false
+        maintainAspectRatio: false,
       }
     });
   </script>

@@ -88,7 +88,7 @@ get '/chart' do
     if current_user.pomodoros.find_by(updated_at: i.days.ago.all_day).nil?
       @array.push(0)
     else
-      @array.push(current_user.pomodoros.where(updated_at: i.days.ago.all_day).sum(:time))
+      @array.push(current_user.pomodoros.where(updated_at: i.days.ago.all_day).sum(:time) / 60)
     end
 
   end
