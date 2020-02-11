@@ -4,8 +4,9 @@ require 'sinatra/reloader' if development?
 
 require './models'
 require './src/signin-up-out'
-
 require './src/time'
+require './src/progress-bar'
+# require './src/graph'
 
 enable :sessions
 
@@ -23,16 +24,8 @@ get '/' do
 
   # ユーザーログイン時
   else
-    unless UserSetting.find_by(user_id: session[:user]).nil?
-      @user_setting = UserSetting.find_by(user_id: session[:user])
-      if current_user.pomodoros.nil?
-        @percent = 0
-      else
-        @pomodoro = current_user.pomodoros.sum(:time)
-        @percent = (@pomodoro.to_d / 3600 / @user_setting.goal.to_d * 100).floor(2).to_f
-        @study_summary = "#{(@pomodoro.to_d / 3600).floor(2).to_f}""時間/""#{@user_setting.goal}""時間"
-      end
-    end
+    # './src/progress-bar'
+    progress_bar_today
 
     @notices = Notice.limit(5)
     erb :index_sign_on
@@ -84,6 +77,22 @@ post '/tQQBu3FNVhG2AKRv4G9aRRuiqc4nWbmx' do
 end
 
 get '/chart' do
+  #'./src/progress-bar'
+  progress_bar_today
+  progress_bar_week
+
+  @array = []
+  today = Date.today
+  [*(0..6)].reverse_each do |i|
+
+    if current_user.pomodoros.find_by(updated_at: i.days.ago.all_day).nil?
+      @array.push(0)
+    else
+      @array.push(current_user.pomodoros.where(updated_at: i.days.ago.all_day).sum(:time))
+    end
+
+  end
+
   erb :chart
 end
 

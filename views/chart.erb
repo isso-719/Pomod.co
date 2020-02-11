@@ -58,24 +58,34 @@
     <a href="/signout"><i class="fas fa-sign-out-alt"></i></a>
   </menu>
   <main>
-    <h1>Chart(未実装)<hr></h1>
+    <h1>Chart<hr></h1>
     <div id="container">
       <div id="achievement-wrap">
         <div id="achievement">
-          <h2>今日の目標達成状況</h2>
-          <h3>今週は77%達成しました(未実装)</h3>
-          <div class="percent">
-            <div class="progress" style="width:77%;"></div>
-          </div>
-          <small>770時間/1,000時間</small>
+          <% if UserSetting.find_by(user_id: session[:user]).nil?  %>
+            <h2>今日の目標達成状況</h2>
+            <h3>1日の目標を設定すると表示されます</h3>
+          <% else %>
+            <h2>今日の目標達成状況</h2>
+            <h3>今日は<%= @percent %>%達成しました</h3>
+            <div class="percent">
+              <div class="progress" style="width:<%= @percent %>%;"></div>
+            </div>
+            <small><%= @study_summary %></small>
+          <% end %>
         </div>
         <div id="achievement">
-          <h2>今月の目標達成状況</h2>
-          <h3>今月は77%達成しました(未実装)</h3>
-          <div class="percent">
-            <div class="progress second" style="width:77%;"></div>
-          </div>
-          <small>770時間/1,000時間</small>
+          <% if UserSetting.find_by(user_id: session[:user]).nil?  %>
+            <h2>今週の目標達成状況</h2>
+            <h3>1日の目標を設定すると表示されます</h3>
+          <% else %>
+            <h2>今週の目標達成状況</h2>
+            <h3>今週は<%= @percent_week %>%達成しました</h3>
+            <div class="percent">
+              <div class="progress" style="width:<%= @percent_week %>%;"></div>
+            </div>
+            <small><%= @study_summary_week %></small>
+          <% end %>
         </div>
       </div>
       <div id="summary">
@@ -89,11 +99,13 @@
             <th>次にやること</th>
             <th>計測時間</th>
             <th>開始日時</th>
+            <th>編集</th>
           </tr>
           <tr>
             <td>トリさん</td>
             <td>空を飛ぶこと</td>
             <td>グリーン</td>
+            <td>山</td>
             <td>山</td>
             <td>山</td>
           </tr>
@@ -141,7 +153,7 @@
         datasets: [{
           label: "勉強時間",
           borderColor: 'rgb(255, 99, 132)',
-          data: [0, 10, 5, 2, 20, 30, 45],
+          data: <%= @array %>,
         }]
       },
 
