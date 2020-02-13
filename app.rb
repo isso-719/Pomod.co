@@ -114,6 +114,20 @@ post '/chart/edit/:id' do
   erb :chart_edit
 end
 
+post '/chart/edited/:id' do
+  @pomodoro = current_user.pomodoros.find(params[:id])
+  pomodoro = current_user.pomodoros.find(params[:id]).update(
+  did: params[:did],
+  understand: params[:understand],
+  next: params[:next]
+  )
+  redirect '/chart#result'
+end
+
+post '/chart/remove/:id' do
+  @pomodoro = current_user.pomodoros.find(params[:id]).destroy
+end
+
 get '/todo' do
   erb :todo
 end

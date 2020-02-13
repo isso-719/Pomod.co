@@ -29,7 +29,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="../../assets/css/layout-sign-on.css" />
   <link rel="stylesheet" href="../../assets/css/index.css" />
-  <link rel="stylesheet" href="../../assets/css/chart.css" />
+  <link rel="stylesheet" href="../../assets/css/chart_edit.css" />
   <!-- JS -->
 
   <!-- ファビコン -->
@@ -60,13 +60,32 @@
   <main>
     <h1>Edit<hr></h1>
     <div id="container">
+      <div class="time_set">
+        <h2>記録を編集する</h2>
+        <form method="post" action="/chart/edited/<%= @pomodoro.id %>">
+          <h3>やったこと</h3>
+          <input type="text" name="did" value="<%= @pomodoro.did %>">
+          <h3>わかったこと</h3>
+          <input type="text" name="understand" value="<%= @pomodoro.understand %>">
+          <h3>次にやること</h3>
+          <input type="text" name="next" value="<%= @pomodoro.next %>">
+          <button type="button" class="remove" onclick="remove()">削除する</button>
+          <input type="submit" value="保存して戻る">
+        </form>
+      </div>
     </div>
   </main>
-  <script
-    src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <script>
+    function remove() {
+      result = window.confirm('この記録を削除してもよろしいですか?\nこの操作は取り消せません');
+      if (result) {
+        $.post('/chart/remove/<%= @pomodoro.id %>')
+        window.location.href = "/chart#result";
+      }
+    }
+  </script>
   <script>
     (function (d) {
       var c = d.createElement('link');
