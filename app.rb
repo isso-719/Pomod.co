@@ -6,7 +6,12 @@ require './models'
 require './src/signin-up-out'
 require './src/time'
 require './src/progress-bar'
-# require './src/graph'
+
+require 'will_paginate/view_helpers/sinatra'
+require 'will_paginate/active_record'
+require 'will_paginate/array'
+
+helpers WillPaginate::Sinatra
 
 enable :sessions
 set :sessions, :expire_after => 2592000
@@ -94,7 +99,18 @@ get '/chart' do
 
   end
 
+  if current_user.pomodoros.find_by("time > ?", 0)
+    @histories = current_user.pomodoros.where("time > ?", 0).reverse.paginate(:page => params[:page], :per_page => 5)
+  else
+    @histories = nil
+  end
+
   erb :chart
+end
+
+post '/chart/edit/:id' do
+  @pomodoro = current_user.pomodoros.find(params[:id])
+  erb :chart_edit
 end
 
 get '/todo' do

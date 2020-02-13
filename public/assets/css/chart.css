@@ -2,10 +2,12 @@
   position: relative;
   width: calc(100% - 64px);
   height: 40vh;
+  margin: auto 0;
 }
 #line {
   padding: 8px 16px;
   width: calc(100% - 32px) !important;
+  height: auto !important;
   background-color: #ebebeb;
   border-radius: 16px;
   box-shadow: 5px 5px 8px #acabab, -2px -2px 8px #ffffff;
@@ -29,10 +31,10 @@
   background: linear-gradient(45deg, #68bbca, #90fc75);
 }
 #result {
-  margin: 24px 16px 24px 8px;
+  margin: auto 16px auto 8px;
   width: calc(100% - 128px);
   padding: 0 32px;
-  background-color: #ffffff;
+  background-color: #f0f0f0;
   border-radius: 8px;
   box-shadow: 5px 5px 8px #acabab, -2px -2px 8px #ffffff;
 }
@@ -50,14 +52,55 @@
 
 #result table tr:hover {
   transition: 1s;
-  background-color: #ececec;
+  background-color: #ffffff;
 }
 
 #result table th,
 #result table td {
   text-align: center;
   width: calc(100% / 6);
-  padding: 15px 0;
+  padding: 4px 0;
+}
+
+.pagination {
+  margin: 16px 8px 24px 8px;
+}
+
+.previous_page,
+.next_page,
+.current,
+.pagination a {
+  margin: 0 8px 0 0;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  box-shadow: 5px 5px 8px #acabab, -2px -2px 8px #ffffff;
+}
+
+.previous_page.disabled,
+.next_page.disabled,
+.current {
+  box-shadow: inset 5px 5px 8px #acabab, -2px -2px 8px #ffffff;
+}
+
+.edit_button {
+  margin: 0 auto;
+  height: 100%;
+}
+
+.edit_button input {
+  height: 50%;
+  width: 50%;
+  margin: 0 auto;
+  border: none;
+  outline: none;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  box-shadow: 1px 1px 4px #acabab, -1px -1px 4px #ffffff;
+}
+
+.edit_button input:active {
+  box-shadow: inset 1px 1px 3px #acabab, -1px -1px 3px #ffffff;
 }
 
 .dammy {

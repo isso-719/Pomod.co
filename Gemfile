@@ -26,6 +26,8 @@ gem "nokogiri", ">= 1.10.4"
 
 gem 'minitest', '~> 5.14'
 
+gem 'will_paginate'
+
 group :development do
   gem 'sqlite3','1.4.1'
 end

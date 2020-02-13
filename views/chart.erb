@@ -91,6 +91,8 @@
       <div id="summary">
         <canvas id="line"></canvas>
       </div>
+      <% if @histories.nil? %>
+      <% else %>
       <div id="result">
         <table>
           <tr>
@@ -101,34 +103,39 @@
             <th>開始日時</th>
             <th>編集</th>
           </tr>
-          <tr>
-            <td>トリさん</td>
-            <td>空を飛ぶこと</td>
-            <td>グリーン</td>
-            <td>山</td>
-            <td>山</td>
-            <td>山</td>
-          </tr>
-          <tr>
-            <td>クジラさん</td>
-            <td>潮を吹くこと</td>
-            <td>ブルー</td>
-            <td>海</td>
-            <td>山</td>
-          </tr>
-          <tr>
-            <td>カニさん</td>
-            <td>反復横飛び</td>
-            <td>レッド</td>
-            <td>川</td>
-            <td>山</td>
-          </tr>
+            <% @histories.each do |history| %>
+            <tr>
+              <td><%= history.did %></td>
+              <td><%= history.understand %></td>
+              <td><%= history.next %></td>
+              <td><%= history.time %></td>
+              <td><%= history.created_at %></td>
+              <td>
+                <form class="edit_button" method="post" action="/chart/edit/<%= history.id %>">
+                  <input type="submit" value="編集">
+                </form>
+              </td>
+            </tr>
+            <% end %>
         </table>
+        <%= will_paginate @histories, inner_window: 1, previous_label: "<前", next_label: "次>", :params => {:anchor => "result"} %>
       </div>
+      <% end %>
       <span class="dammy"></span>
     </div>
   </main>
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous">
+  <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+  <script>
+    $(function() {
+      var urlParams = new URLSearchParams(window.location.search);
+      var anchor = urlParams.get('anchor');
+      if (anchor === "result") {
+        location.href = `/chart?page=${urlParams.get('page')}#result`;
+      }
+    });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
   <script>
