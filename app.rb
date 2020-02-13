@@ -102,7 +102,8 @@ get '/chart' do
   if current_user.pomodoros.find_by("time >= ?", 0).nil?
     @histories = nil
   else
-    @histories = current_user.pomodoros.where("time >= ?", 1).reverse.paginate(:page => params[:page], :per_page => 5)
+    histories = current_user.pomodoros.where("time >= ?", 1)
+    @histories = histories.reverse.paginate(:page => params[:page], :per_page => 5)
   end
 
   erb :chart

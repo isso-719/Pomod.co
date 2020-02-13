@@ -77,6 +77,13 @@
   box-shadow: 5px 5px 8px #acabab, -2px -2px 8px #ffffff;
 }
 
+.previous_page:active,
+.next_page:active,
+.current:active,
+.pagination a:active {
+  box-shadow: inset 5px 5px 8px #acabab, -2px -2px 8px #ffffff;
+}
+
 .previous_page.disabled,
 .next_page.disabled,
 .current {
