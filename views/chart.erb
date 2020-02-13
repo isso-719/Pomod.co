@@ -108,7 +108,7 @@
               <td><%= history.did %></td>
               <td><%= history.understand %></td>
               <td><%= history.next %></td>
-              <td><%= history.time %></td>
+              <td><%= history.time / 60 %>分<%= history.time % 60 %>秒</td>
               <td><%= history.created_at %></td>
               <td>
                 <form class="edit_button" method="post" action="/chart/edit/<%= history.id %>">
