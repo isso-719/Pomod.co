@@ -91,10 +91,10 @@ get '/chart' do
   today = Date.today
   [*(0..6)].reverse_each do |i|
 
-    if current_user.pomodoros.find_by(updated_at: i.days.ago.all_day).nil?
+    if current_user.pomodoros.find_by(created_at: i.days.ago.all_day).nil?
       @array.push(0)
     else
-      @array.push(current_user.pomodoros.where(updated_at: i.days.ago.all_day).sum(:time) / 60)
+      @array.push(current_user.pomodoros.where(created_at: i.days.ago.all_day).sum(:time) / 60)
     end
 
   end
