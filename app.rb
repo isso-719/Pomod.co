@@ -88,7 +88,7 @@ get '/chart' do
   progress_bar_week
 
   @array = []
-  today = Date.today
+  today = Date.today.in_time_zone('Tokyo')
   [*(0..6)].reverse_each do |i|
 
     if current_user.pomodoros.find_by(created_at: i.days.ago.all_day).nil?

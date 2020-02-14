@@ -109,7 +109,7 @@
               <td><%= history.understand %></td>
               <td><%= history.next %></td>
               <td><%= history.time / 60 %>分<%= history.time % 60 %>秒</td>
-              <td><%= history.created_at %></td>
+              <td><%= history.created_at.in_time_zone('Tokyo') %></td>
               <td>
                 <form class="edit_button" method="post" action="/chart/edit/<%= history.id %>">
                   <input type="submit" value="編集">
