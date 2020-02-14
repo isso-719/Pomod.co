@@ -106,7 +106,7 @@
           <div class="card">
             <h4><%= notice.title %></h4>
             <p><%= notice.content %></p>
-            <small><%= notice.created_at %></small>
+            <small><%= notice.created_at.in_time_zone('Tokyo') %></small>
           </div>
           <% end %>
 
