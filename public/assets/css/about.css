@@ -92,6 +92,14 @@ section {
   flex-direction: row;
   justify-content: space-between;
 }
+.content div div {
+  flex-direction: column;
+  width: 60px;
+  text-align: center;
+}
+.content div div p {
+  width: 100%;
+}
 .lets {
   text-align: center;
   width: 60px;
