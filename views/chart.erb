@@ -67,7 +67,7 @@
             <h3>1日の目標を設定すると表示されます</h3>
           <% else %>
             <h2>今日の目標達成状況</h2>
-            <h3>今日は<%= @percent %>%達成しました</h3>
+            <h3>今日は<%= @percent %>%達成しました!</h3>
             <div class="percent">
               <div class="progress" style="width:<%= @percent %>%;"></div>
             </div>
@@ -79,8 +79,8 @@
             <h2>今週の目標達成状況</h2>
             <h3>1日の目標を設定すると表示されます</h3>
           <% else %>
-            <h2>今週の目標達成状況</h2>
-            <h3>今週は<%= @percent_week %>%達成しました</h3>
+            <h2>1週間の目標達成状況</h2>
+            <h3>1週間で<%= @percent_week %>%達成しました!</h3>
             <div class="percent">
               <div class="progress" style="width:<%= @percent_week %>%;"></div>
             </div>
