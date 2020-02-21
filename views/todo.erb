@@ -3,6 +3,9 @@
 <head>
   <!-- Meta -->
   <meta charset="UTF-8" />
+  <link rel="dns-prefetch" href="https://code.jquery.com">
+  <link rel="dns-prefetch" href="https://use.fontawesome.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
   <title>Pomod.co</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Pomod.co(ポモドコ)はオシャレで集中できるポモドーロタイマーです。このアプリは25分作業して5分休むことで集中力を継続することのできるポモドーロ勉強法を基にして作られています。">
@@ -45,44 +48,20 @@
 </head>
 
 <body>
+
   <menu>
-    <a href="/">
-      <div class="logo-wrap">
-        <img class="logo" src="assets/images/logo.svg" alt="logo">
-      </div>
-    </a>
-    <a href="/">
-      <div id="child"><i class="fas fa-home"></i></div>
-    </a>
-    <a href="/timer_set">
-      <div id="child"><i class="far fa-clock"></i></div>
-    </a>
-    <a href="/chart">
-      <div id="child"><i class="fas fa-chart-line"></i></div>
-    </a>
-    <div id="on">
-      <div><i class="fas fa-check"></i></div>
-    </div>
-    <a href="/settings">
-      <div id="child"><i class="fas fa-cog"></i></div>
-    </a>
-    <a href="/signout">
-      <div id="signout"><i class="fas fa-sign-out-alt"></i></div>
-    </a>
+    <a class="logo" href="/"></a>
+    <a href="/chart"><i class="fas fa-chart-line"></i></a>
+    <a href="/todo" class="disabled"><i class="fas fa-check"></i></a>
+    <a class="disabled"><i class="fas fa-cog"></i></a>
+    <a href="/signout"><i class="fas fa-sign-out-alt"></i></a>
   </menu>
   <main>
+    <h1>Todo<hr></h1>
+    <div id="container">
+    </div>
   </main>
-
-
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
-  <script>
-    $(function () {
-      $('a').click(function () {
-        location.href = $(this).attr('href');
-        return false;
-      });
-    });
-  </script>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script>
     (function (d) {
       var c = d.createElement('link');
