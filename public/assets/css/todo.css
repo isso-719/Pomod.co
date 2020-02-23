@@ -1,0 +1,22 @@
+h3 {
+  margin: 16px 0 6px;
+}
+#datepicker {
+  margin: 0 8px;
+  width: 240px;
+  height: 64px;
+  text-align: center;
+  border: none;
+  background: #efeeee;
+  border-radius: 50px;
+  font-size: 1.3rem;
+  box-shadow: -2px -2px 8px #cbcaca, 2px 2px 8px #ffffff;
+}
+#datepicker::-webkit-outer-spin-button,
+#datepicker::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.picker {
+  margin: 0 auto 16px auto;
+}

@@ -132,8 +132,23 @@ get '/todo' do
   erb :todo
 end
 
+post '/todo' do
+  pomodoro = current_user.todos.create(
+    content: params[:content],
+    deadline: params[:deadline]
+  )
+
+  redirect '/'
+end
+
 get '/settings' do
   erb :settings
+end
+
+post '/set_goal_update' do
+  goal = current_user.user_settings.last.update(
+    goal: params[:goal]
+  )
 end
 
 get '/administrator' do
