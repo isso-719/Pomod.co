@@ -129,16 +129,29 @@ post '/chart/remove/:id' do
 end
 
 get '/todo' do
+  if current_user.todos.find_by("status = ?", false).nil?
+    @todo = nil
+
+  else
+    @todos = current_user.todos.where("status = ?", false)
+  end
+
   erb :todo
 end
 
 post '/todo' do
-  pomodoro = current_user.todos.create(
+  todo = current_user.todos.create(
     content: params[:content],
     deadline: params[:deadline]
   )
 
   redirect '/'
+end
+
+post '/todo_status/:id' do
+  todo = current_user.todos.find(params[:id])
+  todo.status = !todo.status
+  todo.save
 end
 
 get '/settings' do

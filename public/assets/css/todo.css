@@ -1,6 +1,17 @@
 h3 {
   margin: 16px 0 6px;
 }
+#content {
+  margin: 0 8px;
+  width: 240px;
+  height: 64px;
+  text-align: center;
+  border: none;
+  background: #efeeee;
+  border-radius: 50px;
+  font-size: 1.3rem;
+  box-shadow: -2px -2px 8px #cbcaca, 2px 2px 8px #ffffff;
+}
 #datepicker {
   margin: 0 8px;
   width: 240px;
@@ -19,4 +30,78 @@ h3 {
 }
 .picker {
   margin: 0 auto 16px auto;
+}
+.set_todo {
+  outline: none;
+  border: none;
+  border-radius: 50px;
+  width: 256px;
+  height: 50px;
+  font-size: 1rem;
+  background: #efeeee;
+  box-shadow: 5px 5px 8px #cbcaca, -2px -2px 8px #ffffff;
+}
+.set_todo:active {
+  box-shadow: inset 5px 5px 8px #cbcaca, -2px -2px 8px #ffffff;
+}
+.card p {
+  text-align: center;
+}
+#toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.toggle-label {
+  width: 30px;
+  height: 16.8px;
+  background: #ccc;
+  position: relative;
+  display: inline-block;
+  border-radius: 46px;
+  transition: 0.4s;
+  box-sizing: border-box;
+}
+.toggle-label:after {
+  content: "";
+  position: absolute;
+  width: 16.8px;
+  height: 16.8px;
+  border-radius: 100%;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  background: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: 0.4s;
+}
+
+#toggle:checked + .toggle-label {
+  background-color: #4bd865;
+}
+#toggle:checked + .toggle-label:after {
+  left: 14px;
+}
+
+p {
+  margin-top: 50px;
+  text-align: center;
+  font-weight: bold;
+}
+
+div {
+  margin: auto;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 30px;
+  height: 24px;
+  margin: auto;
 }
