@@ -44,6 +44,10 @@ h3 {
 .set_todo:active {
   box-shadow: inset 5px 5px 8px #cbcaca, -2px -2px 8px #ffffff;
 }
+.card {
+  margin: 0px;
+  width: 100%;
+}
 .card p {
   text-align: center;
 }
