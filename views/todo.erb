@@ -63,19 +63,19 @@
     <h1>Todo<hr></h1>
     <div id="container">
       <div class="time_set">
-        <h2>Todoを追加</h2>
+        <h2>Todoを作成</h2>
         <h3>日付</h3>
-        <input type="text" id="datepicker" autocomplete="off">
+        <input class="day" type="text" id="datepicker" autocomplete="off" readonly="readonly">
         <h3>時間</h3>
         <div class="picker">
-          <input class="min" type="number" size="2" min="0" max="24" pattern="\d*">
+          <input class="hour" type="number" size="2" min="0" max="24" pattern="\d*">
           <p>時</p>
-          <input class="sec" type="number" size="2" min="00" max="59" pattern="\d*">
+          <input class="min" type="number" size="2" min="00" max="59" pattern="\d*">
           <p>分</p>
         </div>
         <br>
         <p class="fail" style="display: none;">この数字は指定できません</p>
-        <button class="set_time">タイマースタート</button>
+        <button class="set_todo">Todoを作成</button>
       </div>
     </div>
   </main>
@@ -84,13 +84,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
   <script>
     $('#datepicker').datepicker({
-      showButtonPanel: true,
       dateFormat: 'yy-mm-dd',
       changeMonth: true,
       duration: 300,
       showAnim: 'slideDown'
     });
   </script>
+  <script src="assets/js/set_todo.js"></script>
   <script>
     (function (d) {
       var c = d.createElement('link');
