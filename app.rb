@@ -131,7 +131,6 @@ end
 get '/todo' do
   if current_user.todos.find_by("status = ?", false).nil?
     @todo = nil
-
   else
     @todos = current_user.todos.where("status = ?", false)
   end

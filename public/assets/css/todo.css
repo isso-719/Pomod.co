@@ -89,13 +89,13 @@ h3 {
   left: 14px;
 }
 
-p {
+#toggle {
   margin-top: 50px;
   text-align: center;
   font-weight: bold;
 }
 
-div {
+#toggle {
   margin: auto;
 }
 

@@ -79,23 +79,25 @@
         <p class="fail" style="display: none;">この数字は指定できません</p>
         <button class="set_todo">Todoを作成</button>
       </div>
-      <div id="notice">
-        <h2>Todo</h2>
-        <div class="card_wrap">
-          <% @todos.reverse.each do |todo| %>
-          <div class="card">
-            <div>
-              <h4><%= todo.content %></h4>
-              <small><%= todo.deadline.in_time_zone('Tokyo') %>まで</small>
-              <div class="toggle-switch">
-                <input id="toggle" class="<%= todo.id %>" type='checkbox' />
-                <label for="toggle" class="toggle-label" />
+      <% unless @todos.nil? %>
+        <div id="notice">
+          <h2>Todo</h2>
+          <div class="card_wrap">
+              <% @todos.reverse.each do |todo| %>
+              <div class="card">
+                <div>
+                  <h4><%= todo.content %></h4>
+                  <small><%= todo.deadline.in_time_zone('Tokyo') %>まで</small>
+                  <div class="toggle-switch">
+                    <input id="toggle" class="<%= todo.id %>" type='checkbox' />
+                    <label for="toggle" class="toggle-label" />
+                  </div>
+                </div>
               </div>
-            </div>
+              <% end %>
           </div>
-          <% end %>
         </div>
-      </div>
+      <% end %>
     </div>
   </main>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
