@@ -184,5 +184,5 @@ post '/make_notice' do
 end
 
 post '/delete_notice' do
-  @notices = Notice.all.destroy
+  @notice = Notice.all.destroy
 end
