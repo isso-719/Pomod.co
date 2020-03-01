@@ -176,8 +176,13 @@ post '/administrator' do
 end
 
 post '/make_notice' do
-    @notice = Notice.create(
+  @notice = Notice.create(
     title: params[:title],
-    content: params[:content])
+    content: params[:content]
+  )
   erb :manage
+end
+
+post '/delete_notice' do
+  @notices = Notice.all.destroy
 end
