@@ -133,3 +133,15 @@ menu p {
 .about p {
   color: #000000;
 }
+#privacy {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+}
+#privacy a {
+  color: #000;
+  text-decoration: none;
+}
